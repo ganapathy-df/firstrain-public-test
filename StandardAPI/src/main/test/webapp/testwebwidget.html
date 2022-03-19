@@ -1,0 +1,74 @@
+<html>
+<head>
+	<style>
+	/* -- tooltip text -- */
+		.tltp {position:absolute; z-index:3000;}
+		.tltp-w {position:relative; left:11px; top:0;}
+		.tltp-hd {font-weight:bold;}
+		.tltp-txt {padding-top:2px; padding-bottom:2px;}
+		.tltp-c {padding:10px; min-height:40px;}
+		.tltp-c {background:#ffffff; border:1px solid #818181; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; -webkit-box-shadow:0 0 2px #666666; -moz-box-shadow:0 0 2px #666666; box-shadow:0 0 2px #666666;}
+	</style>
+	</head>
+<body>
+		<div id="bi" class="ch-bdr">
+					<script class="jq-fr-visualization"  src="https://sandboxapi.firstrain.com/standard/v1/js/visual-init.min.js#authKey=11f2fed36e74db58f2ce82e988e07aa6ee330920ee2d031bec98f4b7976da9aa&frUserId=U:2973273&id=C:MicrosoftCorporation&events=click:callback0,mouseenter:callback1,mouseleave:callback2&dim=250x150&chDim=250x150&chTypes=bi&sp=https://sandboxapi.firstrain.com/standard/v1" type="text/javascript"></script>
+		</div>
+
+</body>
+<script>
+			function showTooltip(pos, node) {
+				var compName = (node.name ? node.name : node.label);
+				var html = ""+
+				"<div class='tltp-hd'>" + compName + "</div>" +
+				"<div class='tltp-txt'>" + node.smartText + "</div>";
+
+				var tt = document.getElementById("fr-tooltip");
+				if(!tt) { //if no placeholder add that
+					tt = document.createElement("div");
+					tt.setAttribute("id", "fr-tooltip");
+					tt.setAttribute("class", "tltp");
+					document.body.appendChild(tt);
+
+					var $div = document.createElement("div");
+					$div.setAttribute("class", "tltp-w jq-tt-st");
+					tt.appendChild($div);
+
+					var $div1 = document.createElement("div");
+					$div1.setAttribute("class", "tltp-c");
+					$div1.setAttribute("id", "jqi-fr-tt-data");
+					$div.appendChild($div1);
+
+				}
+				document.getElementById("jqi-fr-tt-data").innerHTML = html;
+				tt.style.display = 'block';
+				tt.style.left = pos.left + 'px';
+				tt.style.top = pos.top + 'px';
+
+			}
+
+			function hideTooltip() {
+				document.getElementById("fr-tooltip").style.display = 'none';
+			}
+
+			window.callback1 = function(event, obj) {
+				//console.log(this);
+				//console.log(event);
+				//console.log(obj);
+
+				var pos = {"left": (event.pageX + 10), "top": (event.pageY + 10)};
+				console.log(pos);
+				showTooltip(pos, obj);
+
+			}
+
+			window.callback2 = function(event, obj) {
+				//console.log(this);
+				//console.log(event.type);
+				//console.log(obj);
+
+				hideTooltip();
+			}
+
+		</script>
+</html>

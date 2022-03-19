@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div>
+			<iframe width="600px" height="100px" align="left" scrolling="auto" frameborder="1" id="fr-contentframe" src="http://gkhanchi-hp-in:9080/standard/v1/entity/C:MicrosoftCorporation/brief?sections={fr}&frUserId=U:1907&authKey=651975e96bc0ffb9ea035e077e7d9ac006a30762c12ca23dead371c92f8540d9" name="fr-contentframe"></iframe>
+			
+			<iframe width="600px" height="100px" align="right" scrolling="auto" frameborder="1" id="ft-contentframe" src="http://gkhanchi-hp-in:9080/standard/v1/entity/C:MicrosoftCorporation/brief?sections={ft}&frUserId=U:1907&authKey=651975e96bc0ffb9ea035e077e7d9ac006a30762c12ca23dead371c92f8540d9" name="ft-contentframe"></iframe>
+		</div>
+		<script>
+				if(window.addEventListener) {
+					window.addEventListener("message", receiveMessage, false);
+				}
+				function receiveMessage(event) {
+					if(event && event.data) {
+						try {
+							var dataObj = JSON.parse(event.data);
+							if(dataObj && dataObj.height) {
+								document.getElementById(dataObj.section + '-contentframe').setAttribute('height', dataObj.height);
+							}
+						} catch (e) {
+						  //add code if exception handling is required
+						}
+					}
+				}
+		</script>
+</body>
+</html>

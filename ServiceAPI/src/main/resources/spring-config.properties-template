@@ -1,0 +1,5 @@
+ftl.template.path={FTL.TEMPLATE_PATH}
+mail.server.host={MAIL_SERVER_HOST}
+image.url={IMAGE_BASE_URL}
+roles.list={comma separated list of user roles catIds to enquire for ceb cohert usecase}
+stopwords.file.path={STOPWORD File PATH}

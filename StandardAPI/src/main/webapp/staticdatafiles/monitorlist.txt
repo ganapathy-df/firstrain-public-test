@@ -1,0 +1,34 @@
+{
+    "message": "List of monitors populated successfully. ",
+    "result": {
+        "monitors": {
+            "myMonitors": [
+                {
+                    "monitorId": "M:399",
+                    "monitorName": "Power Generation"
+                },
+                {
+                    "monitorId": "M:171311",
+                    "monitorName": "Opportunity and Risk Triggers for Gaurav's Target Regions"
+                }
+            ],
+            "Group_1": [
+                {
+                    "monitorId": "M:260388",
+                    "monitorName": "Bank of the West Example"
+                },
+                {
+                    "monitorId": "M:232869",
+                    "monitorName": "LG - Appliance Industry"
+                }
+            ],
+            "Enterprise_1": [
+                {
+                    "monitorId": "M:100079",
+                    "monitorName": "Eye On The United States Economy"
+                }
+            ]
+        }
+    },
+    "status": "SUCCESS"
+}

@@ -1,0 +1,55 @@
+<framework>
+	<property name = "threads" value = "2" />
+	<property name = "useJavaThreadPool" value = "true" />
+	<data-sources>
+		<data-source type="org.apache.commons.dbcp.BasicDataSource" key="progressDB">
+		   	<property property="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		   	<property property="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=MIHistory;SelectMethod=direct"/>
+		   	<property property="username" value="xx"/>
+		   	<property property="password" value="xx"/>
+		   	<property property="maxActive" value="20"/>
+		   	<property property="maxWait" value="5000"/>
+		   	<property property="defaultAutoCommit" value="false"/>
+		   	<property property="defaultReadOnly" value="false"/>
+		   	<property property="validationQuery" value="select 1"/>
+		   	<property property="poolPreparedStatement" value="true"/>
+		</data-source>
+	</data-sources>
+	
+	<pipeline id = "SageWorksDocuments Feed Tool" disabled = "false" startInactive="false">
+		<property name = "concurrency" value = "1" />
+		<trigger className="org.quartz.CronTrigger" cronExpression="0 0/20 * * * ?" startTime="2014-11-25 00:00:00" />
+		<producer className="com.firstrain.content.producer.NFireProducer">
+			<property name = "times" value = "1" />
+		</producer>
+		<processors>
+		<processor className="com.firstrain.feed.processor.DocumentsFeedProcessor">	
+			<property name="fileNameFormat" value="yyyy-MM-dd_HH-mm-ss"/>
+			<property name = "tempLocation" value = "{TEMP_LOCATION_FEED_FILE}" />
+			<property name = "destLocation" value = "{destLocation}" />
+			<property name = "feedfilename" value = "" />
+			<!-- space seperated sourceids -->
+			<property name = "excludeSourceIds" value = "" />
+			<property name = "entitySearchToken" value = "I:SWIndustry" />
+			<property name = "filterSearchToken" value = "RF:UnitedStatesofAmerica -F:SageworkExclusionFilterTopic -F:10QFilings -F:8KFilings -F:10KFilings -F:SECForm345 -F:CallTranscripts -T:AnalystRatings -T:AnalystComments -T:CorporateInvestorEvents -T:CommunityInitiatives -T:CorporateSocialResponsibility -T:SociallyResponsibleCorporateCulture -T:CorporateWebinars -T:SocialSecurityServices -T:HumanRights -T:NonGovernmentalOrganizationNGO -T:CorporateGovernance -T:NonProfitOrganizationsFundRaisingActivities -T:IndustryEventsConferences" />
+			<property name = "regionsSearchTokensCSV" value = "RF:UnitedStatesofAmerica" />
+			<property name = "regionsBandCSV" value = "1,2,3" />
+			<property name = "industryClassificationId" value = "1" />
+			<property name = "webResultsTotalCount" value = "1000" />
+			<property name = "topicDimensionsCSV" value = "1,2,3,14" />
+			<property name = "relTopicsFilePath" value = "{RelTopicsFilePath}" />
+			<property name = "compFiltersFilePath" value = "{CompFiltersFilePath}" />
+			<property name="docSimilarityPropPath" value="{PATH_TO_PROPERTY_FILE}"/>
+			<property name = "chunkSize" value = "100" />
+			<property name="mailTo" value="{mailTo}"/>
+			<property name="mailFrom" value="{mailFrom}"/>
+			<property name="mailHost" value="mail.firstrain.net"/>
+			<property name="docSolrServerURL" value="http://{IP}:{PORT}/solr/doc"/>
+			<property name="docImageServerURL" value="http://{IP}:{PORT}/solr/docimage"/>
+			<property name="entitySolrServerURL" value="http://{IP}:{PORT}/solr/entity"/>
+			<property name="imageServiceURLsCSV" value="{IMAGE SERVICE URL(S), CAN PROVIDE MULTIPLE URLS COMMA SEPARATED}"/>
+			<property name = "progressPath" value = "jdbc:progressDB:PROGRESS_MARK:SageWorksDocuments Feed Tool" />
+		</processor>
+		</processors>			
+	</pipeline>
+</framework>

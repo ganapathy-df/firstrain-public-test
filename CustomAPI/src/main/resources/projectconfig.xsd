@@ -1,0 +1,39 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="enterprise" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="appname" nillable="false">
+             	 <xs:simpleType>
+				     <xs:restriction base="xs:string">
+				       <xs:minLength value="1"/>
+				     </xs:restriction>
+			  	</xs:simpleType>
+			  </xs:element>
+              <xs:element name="accesstoken" nillable="false">
+              <xs:simpleType>
+				     <xs:restriction base="xs:string">
+				       <xs:minLength value="1"/>
+				     </xs:restriction>
+			  	</xs:simpleType>
+			  </xs:element>
+              <xs:element type="xs:string" name="topicdimensions" nillable="false" minOccurs="0"/>
+              <xs:element name="iprange" nillable="false">
+              <xs:simpleType>
+				     <xs:restriction base="xs:string">
+				       <xs:minLength value="1"/>
+				     </xs:restriction>
+			  	</xs:simpleType>
+			  </xs:element>
+              <xs:element type="xs:short" name="throttle"/>
+              <xs:element type="xs:short" name="indclassid"/>
+            </xs:sequence>
+            <xs:attribute type="xs:long" name="id"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

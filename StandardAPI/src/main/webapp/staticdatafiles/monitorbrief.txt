@@ -1,0 +1,560 @@
+{
+   "result":{
+      "name":"Power Generation",
+      "id":"M:200119",
+      "metaData":{
+         "fr":"Wind Energy Industry Trends|Becton,Dickinson and Company|Solar Energy Industry Trends",
+         "ft":"Becton,Dickinson and Company",
+         "bi":"Aggreko International Power Projects Ltd|Aksa Power Generation Usa, L.L.C.|Alturdyne Power Systems, Llc|American Power Systems, Inc.",
+         "tt":"Babcock Power Inc.|Babcock Power Services Inc.|Clyde Bergemann Power Group|Critical Power Exchange, Llc",
+         "md":"Heat Exchanger|Power Plant Emissions|Steam Turbine Industry Trends|Coal Fired Power Plants",
+         "twt":"Coal-to-Liquid|Cogeneration Power Plants|On-Site Power Generation|Carbon Emission Trends",
+         "rl":"Idaho|California|Florida|Oregon|Texas|Kentucky",
+         "gl":"Costa Rica|Netherlands|India|Belgium|United States of America|Armenia"
+      },
+      "data":{
+         "fr":{
+            "itemOffset":0,
+            "totalItemCount":150,
+            "itemCount":10,
+            "documents":[
+               {
+                  "id":"D:686512790",
+                  "timeStamp":"18 Oct 2014 07:16:43 UTC",
+                  "contentType":"NEWS",
+                  "source":{
+                     "name":"North American Windpower",
+                     "searchToken":"S:NorthAmericanWindpower"
+                  },
+                  "title":"U.S. DOE Helps Fund Quest For Taller Wind Turbine Towers",
+                  "snippet":"The U.S. Department of Energy (DOE) has announced it is awarding $2 million to support two projects focused on manufacturing taller wind turbine towers. Although wind turbines installed in 2013 had an average height of 260 feet, the DOE says the projects will support new techniques to produce towers nearly 400 feet tall. As the DOE explains, winds near the ground are often slower and",
+                  "entity":[
+                     {
+                        "name":"Wind Energy Industry Trends",
+                        "searchToken":"T:WindEnergyIndustryTrends",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.nawindpower.com/e107_plugins/content/content.php?content.13419",
+                  "quotes":"This is the Test Quote - XXXX",
+                  "image":"https://frimages.firstrain.com/imagerepository/1/1354/0b/a5/0ba52b10-3ea4-11e4-a308-0019b9cc211b.jpg"
+               },
+               {
+                  "id":"D:686512790",
+                  "timeStamp":"18 Oct 2014 07:16:43 UTC",
+                  "contentType":"NEWS",
+                  "source":{
+                     "name":"Sustainable Business.com",
+                     "searchToken":"S:SustainableBusinesscom"
+                  },
+                  "title":"President Obama Positions US With Actions on Efficiency, Renewables",
+                  "snippet":"Following up on his announcement on  eliminating HFCs , President Obama turned to expanding energy efficiency and renewable energy today.  These",
+                  "entity":[
+                     {
+                        "name":"Becton, Dickinson and Company",
+                        "searchToken":"C:BectonDickinsonandCompany",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.sustainablebusiness.com/index.cfm/go/news.display/id/25908",
+                  "quotes":"This is the Test Quote - XXXX",
+                  "image":"https://frimages.firstrain.com/imagerepository/1/1354/0b/a5/0ba52b10-3ea4-11e4-a308-0019b9cc211b.jpg"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"BusinessGreen",
+                     "searchToken":"S:BusinessGreen"
+                  },
+                  "title":"White House unveils solar power and energy efficiency boost",
+                  "snippet":"The White House has unveiled more than 50 actions and commitments designed to provide a major boost to the US solar power and energy efficiency industries. The package, which was launched yesterday, is ",
+                  "entity":[
+                     {
+                        "name":"Solar Energy Industry Trends",
+                        "searchToken":"T:SolarEnergyIndustryTrends ",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.businessgreen.com/bg/news/2371068/white-house-unveils-solar-power-and-energy-efficiency-boost"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"Farm Futures",
+                     "searchToken":"S:FarmFutures"
+                  },
+                  "title":"Federal Funding Goes to Rural Solar, Renewable Energy Projects",
+                  "snippet":"USDA on Thursday announced a series of loan guarantees and grants worth $68 million that will go to renewable energy and energy efficiency projects through the Rural Energy for American Program.",
+                  "entity":[
+                     {
+                        "name":"O2 Energies, Inc.",
+                        "searchToken":"C:O2EnergiesInc",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     },
+                     {
+                        "name":"Rural Electrification",
+                        "searchToken":"C:RuralElectrificationCorporationLimited ",
+                        "relevanceBand": "Medium",
+                        "relevanceScore":50
+                     }
+                  ],
+                  "link":"http://farmfutures.com/story-federal-funding-goes-rural-solar-renewable-energy-projects-17-117867"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"EquityBulls",
+                     "searchToken":"S:EquityBulls"
+                  },
+                  "title":"BHEL achieves major breakthrough by bagging first ever EPC contract for 800 MW rating Supercritical Power Project",
+                  "snippet":"Bharat Heavy Electricals Limited (BHEL) has achieved a major breakthrough by bagging a prestigious contract for setting up a supercritical thermal power project on EPC (Engineering, Procurement & Construction) basis from Gujarat State Electricity Corporation Ltd (GSECL).",
+                  "entity":[
+                     {
+                        "name":"Bharat Heavy Electricals Limited",
+                        "searchToken":"C:BharatHeavyElectricalsLimited ",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.equitybulls.com/admin/news2006/news_det.asp?id=147729"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"NorthDenverNews",
+                     "searchToken":"S:NorthDenverNews"
+                  },
+                  "title":"Environmental group says Colorado's power plant major climate problem",
+                  "snippet":"North Denver News - The Voice for the New North Denver Colorado's Power Plants are Major Global Warming Polluters New Report: The Proposed EPA Clean Power Plan Is an Internationally Significant Step Forward on Climate Denver",
+                  "entity":[
+                     {
+                        "name":"Pollution Trends",
+                        "searchToken":"T:PollutionTrends ",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://northdenvernews.com/environmental-group-says-colorados-power-plant-major-climate-problem/"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"NEWS",
+                  "source":{
+                     "name":"PowerSectorNews",
+                     "searchToken":"S:PowerSectorNews"
+                  },
+                  "title":"Sembcorp Industries bids to expand energy business in China",
+                  "snippet":"Business Times reported that Sembcorp Industries signed a conditional JV agreement with Chongqing Songzao Coal and Power LLC in a bid to expand its energy business in China.",
+                  "entity":[
+                     {
+                        "name":"SembCorp Industries Ltd",
+                        "searchToken":"C:SembCorpIndustriesLtd ",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     },
+                     {
+                        "name":"Chongqing Energy Investment Group Corp.",
+                        "searchToken":"C:ChongqingEnergyInvestmentGroupCorp ",
+                        "relevanceBand": "Medium",
+                        "relevanceScore":50
+                     }
+                  ],
+                  "link":"http://power.steelguru.com/global/3902/sembcorp_industries_bids_to_expand_energy_business_in_china"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"TheIrishTimes",
+                     "searchToken":"S:TheIrishTimes"
+                  },
+                  "title":"5  Large green power plants competing with gas, says Lazard",
+                  "snippet":"George Bilicic, global head of power at Lazard, said: \"We used to say some day solar and wind power would be competitive with conventional generation. Well, now it is some day.\"",
+                  "entity":[
+                     {
+                        "name":"Lazard Ltd",
+                        "searchToken":"C:LazardLtd",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.irishtimes.com/business/sectors/energy-and-resources/large-green-power-plants-competing-with-gas-says-lazard-1.1934798"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"LuoyangGongyanTechnologyCoLtd",
+                     "searchToken":"S:LuoyangGongyanTechnologyCoLtd"
+                  },
+                  "title":"China coal import ban to hit SA and Australia",
+                  "snippet":"China announced a tightening of the quality of its coal imports in a move that is likely to hit South African and Australian exports of the commodity.China imported about 54 million tonnes of Australian thermal coal and another 13 million tonnes from South Africa in 2013",
+                  "entity":[
+                     {
+                        "name":"Coal Consumption Trends",
+                        "searchToken":"T:CoalConsumptionTrends",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.rockbolting.net//China_coal_import_ban_to_hit_SA_and_Australia.html"
+               },
+               {
+                  "id":"D:686512422",
+                  "timeStamp":"18 Oct 2014 05:16:43 UTC",
+                  "contentType":"INDUSTRY_SOURCES",
+                  "source":{
+                     "name":"EnergyManagerToday",
+                     "searchToken":"S:EnergyManagerToday"
+                  },
+                  "title":"DOE Awards $23M for 12 Projects to Increase Energy Efficiency in Manufacturing",
+                  "snippet":"The Department of Energy announced expansions of its Clean Energy Manufacturing Initiative and a new initiative to support the goal of doubling energy productivity by 2030.",
+                  "entity":[
+                     {
+                        "name":"Novelis Inc.",
+                        "searchToken":"C:NovelisInc.",
+                        "relevanceBand": "High",
+                        "relevanceScore":90
+                     }
+                  ],
+                  "link":"http://www.energymanagertoday.com/doe-awards-23m-12-projects-increase-energy-efficiency-manufacturing-0105054/"
+               }
+            ]
+         },
+         "ft":{
+            "itemOffset":0,
+            "totalItemCount":150,
+            "itemCount":20,
+            "tweets":[
+               {
+                  "authorName":"Scotty J.",
+                  "authorDescription":"Simply having a blast!",
+                  "title":"To their credit, the state's largest electricity providers, Duke Energy and its eastern offshoot Duke Energy",
+                  "tweetText":"To their credit, the state's largest electricity providers, Duke Energy and its eastern offshoot Duke Energy http://t.co/QknWjPwP8S",
+                  "entity":{
+                     "name":"Duke Energy Corporation",
+                     "searchToken":"C:DukeEnergyCorporation"
+                  },
+                  "tweetId":"TW:508594099335618560",
+                  "timeStamp":"18 Oct 2014 20:16:43 UTC",
+                  "link":[
+                     "http://macdailynews.com/2014/09/05/comscore-apple-gains-u-s-smartphone-share-ahead-of-iphone-6/"
+                  ],
+                  "userName":"energy4u",
+                  "tweetHtml":"<span class='bold'>energy4u</span> <span class='lightGrey'>http://t.co/QknWjPwP8S</span>",
+                  "authorAvatar":"https://pbs.twimg.com/profile_images/2328026161/skihi1crouiikkpwkzgq_normal.jpeg"
+               }
+            ]
+         },
+         "bi":{
+            "title":"BUSINESS INFLUENCERS",
+            "nodes":[
+               {
+                  "name":"Doosan Power Systems Americas, Llc",
+                  "searchToken":"C:DoosanPowerSystemsAmericasLlc",
+                  "value":3.91,
+                  "intensity":5000,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Eco Power Solutions",
+                  "searchToken":"C:EcoPowerSolutions",
+                  "value":1.61,
+                  "intensity":319,
+                  "smartText":"219% above average"
+               },
+               {
+                  "name":"GE Power & Water",
+                  "searchToken":"C:GEPowerWater",
+                  "value":3.18,
+                  "intensity":283,
+                  "smartText":"183% above average"
+               },
+               {
+                  "name":"Hubbell Power Systems, Inc.",
+                  "searchToken":"C:HubbellPowerSystemsInc",
+                  "value":3.91,
+                  "intensity":1563,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Ideal Power Inc",
+                  "searchToken":"C:IdealPowerInc",
+                  "value":2.4,
+                  "intensity":717,
+                  "smartText":"617% above average"
+               },
+               {
+                  "name":"Kohler Power Systems",
+                  "searchToken":"C:KohlerPowerSystems",
+                  "value":2.2,
+                  "intensity":130,
+                  "smartText":"30% above average"
+               },
+               {
+                  "name":"MacLean Power Systems",
+                  "searchToken":"C:MacLeanPowerSystems",
+                  "value":5.74,
+                  "intensity":507,
+                  "smartText":"407% above average"
+               }
+            ]
+         },
+         "tt":{
+            "title":"MONITOR ACTIVITY TRENDS",
+            "nodes":[
+               {
+                  "name":"Doosan Power Systems Americas, Llc",
+                  "searchToken":"C:DoosanPowerSystemsAmericasLlc",
+                  "value":3.91,
+                  "intensity":5000,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Eco Power Solutions",
+                  "searchToken":"C:EcoPowerSolutions",
+                  "value":1.61,
+                  "intensity":319,
+                  "smartText":"219% above average"
+               },
+               {
+                  "name":"GE Power & Water",
+                  "searchToken":"C:GEPowerWater",
+                  "value":3.18,
+                  "intensity":283,
+                  "smartText":"183% above average"
+               },
+               {
+                  "name":"Hubbell Power Systems, Inc.",
+                  "searchToken":"C:HubbellPowerSystemsInc",
+                  "value":3.91,
+                  "intensity":1563,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Ideal Power Inc",
+                  "searchToken":"C:IdealPowerInc",
+                  "value":2.4,
+                  "intensity":717,
+                  "smartText":"617% above average"
+               },
+               {
+                  "name":"Kohler Power Systems",
+                  "searchToken":"C:KohlerPowerSystems",
+                  "value":2.2,
+                  "intensity":130,
+                  "smartText":"30% above average"
+               },
+               {
+                  "name":"MacLean Power Systems",
+                  "searchToken":"C:MacLeanPowerSystems",
+                  "value":5.74,
+                  "intensity":507,
+                  "smartText":"407% above average"
+               }
+            ]
+         },
+         "md":{
+            "title":"MARKET DRIVERS",
+            "nodes":[
+               {
+                  "name":"Gas Turbine Market",
+                  "searchToken":"T:GasTurbineMarket",
+                  "value":5.21,
+                  "intensity":390,
+                  "smartText":"290% above average"
+               },
+               {
+                  "name":"Flue-Gas Desulfurization (FGD)",
+                  "searchToken":"T:FlueGasDesulfurizationFGD",
+                  "value":4.43,
+                  "intensity":286,
+                  "smartText":"186% above average"
+               },
+               {
+                  "name":"Industrial Boiler Market",
+                  "searchToken":"T:IndustrialBoilerMarket",
+                  "value":5.21,
+                  "intensity":390,
+                  "smartText":"290% above average"
+               },
+               {
+                  "name":"Industrial Combustion Equipment",
+                  "searchToken":"T:IndustrialCombustionEquipment",
+                  "value":4.43,
+                  "intensity":286,
+                  "smartText":"186% above average"
+               }
+            ]
+         },
+         "twt":{
+            "title":"Business Twitter Trends",
+            "nodes":[
+               {
+                  "name":"Steam Turbine Industry Trends",
+                  "searchToken":"T:SteamTurbineIndustryTrends",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Generac Power Systems, Inc.",
+                  "searchToken":"C:GeneracPowerSystemsInc",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Himoinsa Power Systems, Inc",
+                  "searchToken":"C:HimoinsaPowerSystemsInc",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Bituminous Coal Industry Trends",
+                  "searchToken":"T:BituminousCoalIndustryTrends",
+                  "value":200,
+                  "intensity":-1,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"ABB, Inc.",
+                  "searchToken":"C:ABBInc",
+                  "value":200,
+                  "intensity":-1,
+                  "smartText":"100% above average and falling"
+               },
+               {
+                  "name":"Abb Pte. Ltd.",
+                  "searchToken":"C:AbbPteLtd",
+                  "value":179,
+                  "intensity":-1,
+                  "smartText":"79% above average falling"
+               }
+            ]
+         },
+         "gl":{
+            "title":"REGIONAL LENS: GLOBAL",
+            "nodes":[
+               {
+                  "name":"Costa Rica",
+                  "searchToken":"R:CostaRica",
+                  "value":10,
+                  "intensity":100,
+                  "smartText":"35% above average",
+                  "countryCode":"cr"
+               },
+               {
+                  "name":"Netherlands",
+                  "searchToken":"R:Netherlands",
+                  "value":377,
+                  "intensity":16,
+                  "smartText":"35% above average",
+                  "countryCode":"nl"
+               },
+               {
+                  "name":"India",
+                  "searchToken":"R:India",
+                  "value":1812,
+                  "intensity":135,
+                  "smartText":"35% above average",
+                  "countryCode":"in"
+               },
+               {
+                  "name":"Belgium",
+                  "searchToken":"R:Belgium",
+                  "value":42,
+                  "intensity":818,
+                  "smartText":"718% above average",
+                  "countryCode":"be"
+               },
+               {
+                  "name":"United States of America",
+                  "searchToken":"RF:UnitedStatesofAmerica",
+                  "value":12448,
+                  "intensity":106,
+                  "smartText":"6% above average",
+                  "countryCode":"us"
+               },
+               {
+                  "name":"Armenia",
+                  "searchToken":"R:Armenia",
+                  "value":18,
+                  "intensity":500,
+                  "smartText":"400% above average",
+                  "countryCode":"am"
+               }
+            ]
+         },
+         "rl":{
+            "title":"REGIONAL LENS: U.S.",
+            "nodes":[
+               {
+                  "name":"Idaho",
+                  "searchToken":"R:Idaho",
+                  "value":10,
+                  "intensity":200,
+                  "smartText":"100% above average",
+                  "stateCode":"id"
+               },
+               {
+                  "name":"California",
+                  "searchToken":"R:California",
+                  "value":8275,
+                  "intensity":118,
+                  "smartText":"18% above average",
+                  "stateCode":"ca"
+               },
+               {
+                  "name":"Florida",
+                  "searchToken":"R:Florida",
+                  "value":99,
+                  "intensity":126,
+                  "smartText":"26% above average",
+                  "stateCode":"fl"
+               },
+               {
+                  "name":"Oregon",
+                  "searchToken":"R:Oregon",
+                  "value":48,
+                  "intensity":130,
+                  "smartText":"30% above average",
+                  "stateCode":"or"
+               },
+               {
+                  "name":"Texas",
+                  "searchToken":"R:Texas",
+                  "value":399,
+                  "intensity":167,
+                  "smartText":"67% above average",
+                  "stateCode":"tx"
+               },
+               {
+                  "name":"Kentucky",
+                  "searchToken":"R:Kentucky",
+                  "value":31,
+                  "intensity":1500,
+                  "smartText":"10 times above average",
+                  "stateCode":"ky"
+               }
+            ]
+         }
+      }
+   }
+}

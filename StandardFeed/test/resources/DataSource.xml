@@ -1,0 +1,14 @@
+<data-sources>
+		<data-source className="org.apache.commons.dbcp.BasicDataSource" key="progressDB"> <!-- Do not change this key, used in SubscriptionManager -->
+			<property property="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+			<property property="url" value="jdbc:sqlserver://10.69.11.193:24955;DatabaseName=TFRA_MIHistory;SelectMethod=direct"/>
+			<property property="username" value="tfra_dbowner"/>
+			<property property="password" value="4F1rs5R4In"/>
+			<property property="maxActive" value="50"/>
+			<property property="maxWait" value="5000"/>
+			<property property="defaultAutoCommit" value="false"/>
+			<property property="defaultReadOnly" value="false"/>
+			<property property="poolPreparedStatement" value="true"/>
+			<property property="validationQuery" value="select 1"/>
+		</data-source>	
+	</data-sources>

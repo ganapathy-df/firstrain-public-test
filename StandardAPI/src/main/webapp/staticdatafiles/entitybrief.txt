@@ -1,0 +1,1143 @@
+{
+   "result":{
+      "name":"Cogeneration Power Plants",
+      "id":"T:CogenerationPowerPlants",
+      "metaData":{
+         "fr":"Wind Energy Industry Trends|Becton,Dickinson and Company|Solar Energy Industry Trends",
+         "ft":"O2 Energies, Inc.",
+         "bi":"RDA Microelectronics, Inc.|Chipworks Inc.|Taiwan Semiconductor Manufacturing Company Ltd.|Crittercism, Inc.",
+         "tt":"Free Software Foundation, Inc.|Konica Minolta Printing Solutions U.S.A., Inc.|Wowza Media Systems, Inc.|Microsoft Corporation (India) Pvt. Ltd.",
+         "md":"Operating System (OS) Software|Mobile Operating Systems|Open Source Software|Information Technology (IT) Security",
+         "twt":"Personal Computer (PC) Sales|Brocade Communications Systems, Inc.|HP Enterprise Services|Notebook & Tablet Personal Computer (PC) Market",
+         "rl":"Idaho|California|Florida|Oregon|Texas|Kentucky",
+         "gl":"Costa Rica|Netherlands|India|Belgium|United States of America|Armenia"
+      },
+      "data":{
+         "fr": {
+        "documents": [
+          {
+            "id": "D:696513978",
+            "contentType": "INDUSTRY_SOURCES",
+            "timeStamp": "04 Dec 2014 12:06:46 UTC",
+            "source": {
+              "name": "Insider Monkey",
+              "searchToken": "S:InsiderMonkey"
+            },
+            "link": "http://www.insidermonkey.com/blog/satya-nadella-vs-steve-ballmer-as-microsoft-corporation-msft-ceo-whose-personality-fits-the-role-336428/",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Corporate & Investor Events",
+                "searchToken": "T:CorporateInvestorEvents",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Personal Computer (PC) Industry Outlook",
+                "searchToken": "T:PersonalComputerPCIndustryOutlook",
+                "relevanceScore": 20,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 70,
+                "relevanceBand": "High"
+              }
+            ],
+            "title": "Satya Nadella Vs. Steve Ballmer As Microsoft Corporation (MSFT) CEO: Whose Personality Fits The Role",
+            "groupId": "G:477079217",
+            "image": "https://frimages.firstrain.com/imagerepository/1/926/58/7a/587af890-ee4e-11e2-9b35-0019b9cc211b.jpg",
+            "snippet": "Microsoft Corporation (NASDAQ:MSFT)'s CEO Satya Nadella hosted the company's annual shareholders meeting on Wednesday. IHS Senior Mobile Analyst, Daniel Gleeson discussed on Bloomberg TV with Bloomberg's Anna Edwards and Mark Barton about Nadella's performance in the shareholders meet and the outlook for the company.\n\nGleeson pointed out that Nadella is a very calm and composed..."
+          },
+          {
+            "id": "D:696503694",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 10:06:55 UTC",
+            "source": {
+              "name": "North Fork Vue",
+              "searchToken": "S:NorthForkVue"
+            },
+            "link": "http://northforkvue.com/press-releases/479792/saasplaza-navonazure-com-unlocks-nav-2015-on-microsoft-azure-globally-for-microsoft-dynamics-partners/",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Cloud Computing Trends",
+                "searchToken": "T:CloudComputingTrends",
+                "relevanceScore": 38,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Licensing Information - Computer Software",
+                "searchToken": "T:LicensingInformationComputerSoftware",
+                "relevanceScore": 7,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              }
+            ],
+            "title": "SaaSplaza NAVonAzure.com unlocks NAV 2015 on Microsoft Azure globally for Microsoft Dynamics Partners",
+            "groupId": "G:477068933",
+            "snippet": "After provisioning more than 50 NAV 2015 on Azure trials, 2014 Inner Circle for Microsoft Dynamics member SaaSplaza now offers free demo environments to all Dynamics Partners.\n\nDynamics Partners and their customers across the world are rapidly embracing the mobile-first,..."
+          },
+          {
+            "id": "D:696498671",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 09:06:54 UTC",
+            "source": {
+              "name": "PR Newswire",
+              "searchToken": "S:PRNewswire"
+            },
+            "link": "http://www.prnewswire.com/news-releases/iomart-helps-customers-embrace-the-cloud-through-microsoft-cloud-solution-provider-programme-284717931.html",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Iomart Group plc",
+                "searchToken": "C:IomartGroupplc",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Melbourne Server Hosting Ltd",
+                "searchToken": "C:MelbourneServerHostingLtd",
+                "relevanceScore": 11,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Partnerships and Agreements",
+                "searchToken": "T:PartnershipsandAgreements",
+                "relevanceScore": 50,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Europe",
+                "searchToken": "R:Europe",
+                "relevanceScore": 13,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Non-US Regions",
+                "searchToken": "R:NonUSRegions",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "United Kingdom",
+                "searchToken": "R:UnitedKingdom",
+                "relevanceScore": 13,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Cloud Computing Trends",
+                "searchToken": "T:CloudComputingTrends",
+                "relevanceScore": 70,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Western Europe",
+                "searchToken": "R:WesternEurope",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "European Union (EU)",
+                "searchToken": "R:EuropeanUnionEU",
+                "relevanceScore": 13,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Customer Relationships",
+                "searchToken": "T:CustomerRelationships",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              }
+            ],
+            "title": "iomart Helps Customers Embrace the Cloud Through Microsoft Cloud Solution Provider Programme",
+            "groupId": "G:477063910",
+            "image": "https://frimages.firstrain.com/imagerepository/1/1433/02/55/02558f30-7b96-11e4-b986-0019b9cc211b.jpg",
+            "snippet": "The Microsoft Cloud Solution Provider Programme allows iomart to provide direct billing, sell combined offers and services, as well as directly provision, manage and support Microsoft cloud offerings\n\nLeading cloud company iomart (AIM:IOM), today announced its participation in the Microsoft Cloud Solution Provider Programme.\n\nThe programme is designed to strengthen customer relationships..."
+          },
+          {
+            "id": "D:696494273",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 08:26:28 UTC",
+            "source": {
+              "name": "Microsoft Games",
+              "searchToken": "S:MicrosoftGames"
+            },
+            "link": "http://news.microsoft.com/2014/12/03/microsoft-declares-quarterly-dividend-25/",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Earnings & Dividends",
+                "searchToken": "T:EarningsDividends",
+                "relevanceScore": 70,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              }
+            ],
+            "title": "Microsoft declares quarterly dividend",
+            "groupId": "G:477028836",
+            "snippet": "REDMOND, Wash.- Dec. 3, 2014 - Microsoft Corp. on Wednesday announced that its board of directors declared a quarterly dividend of $0.31 per share. The dividend is..."
+          },
+          {
+            "id": "D:696493744",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 08:23:50 UTC",
+            "source": {
+              "name": "The Rainbow Push Coalition Inc",
+              "searchToken": "S:TheRainbowPushCoalitionInc"
+            },
+            "link": "http://rainbowpush.org/index.php/news_links/single/diversity_takes_center_stage_at_microsoft_annual_meeting",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "The Rainbow Push Coalition Inc",
+                "searchToken": "C:TheRainbowPushCoalitionInc",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Corporate & Investor Events",
+                "searchToken": "T:CorporateInvestorEvents",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "United States of America",
+                "searchToken": "RF:UnitedStatesofAmerica",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "North America",
+                "searchToken": "R:NorthAmerica",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "US - States & Capitals",
+                "searchToken": "R:USStatesCapitals",
+                "relevanceScore": 73,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "California",
+                "searchToken": "R:California",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 11,
+                "relevanceBand": "Low"
+              }
+            ],
+            "title": "Jesse Jackson - Diversity takes center stage at Microsoft annual meeting",
+            "groupId": "G:477058983",
+            "snippet": "Jessica Guynn , USATODAY3:28 p.m. EST December 3, 2014\n\n(Photo: Butch Wing / Rainbow PUSH Coalition)\n\nSAN FRANCISCO - Diversity took center stage at the Microsoft annual meeting on Wednesday\n\nas the technology giant agreed to release the diversity data it reports to the federal government\n\nby the end of the month.\n\nMicrosoft said it would make public the EEO-1 form which details..."
+          },
+          {
+            "id": "D:696490331",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 08:11:20 UTC",
+            "source": {
+              "name": "Ayoka, L.L.C.",
+              "searchToken": "S:AyokaLLC"
+            },
+            "link": "http://www.ayokasystems.com/blog/development-diva/satya-nadella-pushing-microsoft-forward/",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Management and Board Changes",
+                "searchToken": "T:ManagementandBoardChanges",
+                "relevanceScore": 46,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Hire & Departure",
+                "searchToken": "T:ChiefExecutiveOfficerCEOHireDeparture",
+                "relevanceScore": 46,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Mobile Application Market",
+                "searchToken": "T:MobileApplicationMarket",
+                "relevanceScore": 20,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Business Opportunities",
+                "searchToken": "T:BusinessOpportunities",
+                "relevanceScore": 64,
+                "relevanceBand": "Medium"
+              }
+            ],
+            "title": "Satya Nadella Pushing Microsoft Forward",
+            "groupId": "G:477055570",
+            "image": "https://frimages.firstrain.com/imagerepository/1/1433/90/f5/90f511f0-7b8e-11e4-b986-0019b9cc211b.jpg",
+            "snippet": "Microsoft's Satya Nadella has made headlines since he's taken the position of CEO, succeeding the resigned CEO, Steve Ballmer. He's forward-thinking and..."
+          },
+          {
+            "id": "D:696489574",
+            "contentType": "WIRENEWS",
+            "timeStamp": "04 Dec 2014 08:07:52 UTC",
+            "source": {
+              "name": "The Australian Financial Review",
+              "searchToken": "S:TheAustralianFinancialReview"
+            },
+            "link": "http://www.afr.com/p/technology/that_last_answer_sucked_steve_ballmer_ygbyfgEaue1fZ9KcBmqDQM",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Corporate & Investor Events",
+                "searchToken": "T:CorporateInvestorEvents",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 70,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Hire & Departure",
+                "searchToken": "T:ChiefExecutiveOfficerCEOHireDeparture",
+                "relevanceScore": 20,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "US - States & Capitals",
+                "searchToken": "R:USStatesCapitals",
+                "relevanceScore": 70,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 73,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Chief Financial Officer (CFO) - Quotes & News",
+                "searchToken": "T:ChiefFinancialOfficerCFOQuotesNews",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              }
+            ],
+            "title": "'That last answer sucked' ... Steve Ballmer snipes at Microsoft AGM",
+            "groupId": "G:477054813",
+            "image": "https://frimages.firstrain.com/imagerepository/1/1433/ea/c1/eac14f60-7b8d-11e4-b986-0019b9cc211b.jpg",
+            "snippet": "Former Microsoft CEO Steve Ballmer, right, and Reverend Jesse Jackson share a laugh before the Microsoft Shareholders meeting, at which Mr Ballmer asked no questions, but still made his feelings known. Photo: AFP\n\nMicrosoft CEO Satya Nadella and CFO Amy Hood take questions at the meeting. Photo: AFP\n\nFormer Microsoft chief executive Steve Ballmer and civil rights activist..."
+          },
+          {
+            "id": "D:696471941",
+            "contentType": "WEBNEWS",
+            "timeStamp": "04 Dec 2014 04:00:43 UTC",
+            "source": {
+              "name": "NEWS.com.au",
+              "searchToken": "S:NEWScomau"
+            },
+            "link": "http://www.news.com.au/finance/business/new-microsoft-on-display-at-agm/story-e6frfkur-1227144713496",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Corporate & Investor Events",
+                "searchToken": "T:CorporateInvestorEvents",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Thought Leaders",
+                "searchToken": "T:ThoughtLeaders",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Technology Thought Leaders",
+                "searchToken": "T:TechnologyThoughtLeaders",
+                "relevanceScore": 20,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Cloud Computing Trends",
+                "searchToken": "T:CloudComputingTrends",
+                "relevanceScore": 24,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 55,
+                "relevanceBand": "Medium"
+              }
+            ],
+            "title": "New Microsoft on display at AGM",
+            "groupId": "G:477035800",
+            "snippet": "MICROSOFT'S changing of the guard has held the spotlight at the company's shareholders meeting.\n\nCHIEF Executive Satya Nadella and Chairman John Thompson oversaw a largely scripted affair touting the company's progress in cloud computing, hopes for the Windows 10 operating system and efforts to create a more inclusive company.\n\nSteve Ballmer, used to spending his time on stage during..."
+          },
+          {
+            "id": "D:696468473",
+            "contentType": "PRESS_RELEASE",
+            "timeStamp": "04 Dec 2014 03:00:13 UTC",
+            "source": {
+              "name": "Scoop",
+              "searchToken": "S:Scoop"
+            },
+            "link": "http://www.scoop.co.nz/stories/BU1412/S00204/microsoft-student-accelerator-programme-gets-into-gear.htm",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Southern Cross Healthcare Group plc",
+                "searchToken": "C:SouthernCrossHealthcareGroupplc",
+                "relevanceScore": 7,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Genesis Energy (New Zealand)",
+                "searchToken": "C:GenesisEnergyNewZealand",
+                "relevanceScore": 22,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Microsoft New Zealand Limited",
+                "searchToken": "C:MicrosoftNewZealandLimited",
+                "relevanceScore": 22,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Management Quotes",
+                "searchToken": "T:ManagementQuotes",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Software Industry Outlook",
+                "searchToken": "T:SoftwareIndustryOutlook",
+                "relevanceScore": 25,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Non-US Regions",
+                "searchToken": "R:NonUSRegions",
+                "relevanceScore": 76,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Asia Pacific",
+                "searchToken": "R:AsiaPacific",
+                "relevanceScore": 76,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "New Zealand",
+                "searchToken": "R:NewZealand",
+                "relevanceScore": 74,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "US - States & Capitals",
+                "searchToken": "R:USStatesCapitals",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Education Industry - New Courses &amp; Programs",
+                "searchToken": "T:EducationIndustryNewCoursesampPrograms",
+                "relevanceScore": 69,
+                "relevanceBand": "High"
+              }
+            ],
+            "title": "Microsoft Student Accelerator programme gets into gear",
+            "groupId": "G:477033712",
+            "snippet": "Microsoft Student Accelerator programme gets into gear for summer; tertiary IT students rev up for 10 weeks of on-the-job training at leading Kiwi companies\n\nMSA programme helping address New Zealand shortage of skilled IT professionals\n\nAUCKLAND, 4 December, 2014 - 94 New Zealand university students took an official first step in launching their IT careers this week as part of the 2015..."
+          },
+          {
+            "id": "D:696460489",
+            "contentType": "WEBNEWS",
+            "timeStamp": "04 Dec 2014 01:00:55 UTC",
+            "source": {
+              "name": "Seeking Alpha",
+              "searchToken": "S:SeekingAlpha"
+            },
+            "link": "http://seekingalpha.com/article/2728905-microsoft-corporations-msft-ceo-satya-nadella-hosts-2014-annual-meeting-of-shareholders-transcript?source=feed_sector_technology",
+            "entity": [
+              {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceScore": 100,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Mojang AB",
+                "searchToken": "C:MojangAB",
+                "relevanceScore": 11,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Corporate & Investor Events",
+                "searchToken": "T:CorporateInvestorEvents",
+                "relevanceScore": 73,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "United States of America",
+                "searchToken": "RF:UnitedStatesofAmerica",
+                "relevanceScore": 13,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Thought Leaders",
+                "searchToken": "T:ThoughtLeaders",
+                "relevanceScore": 22,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Key European Thought Leaders",
+                "searchToken": "T:KeyEuropeanThoughtLeaders",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "North America",
+                "searchToken": "R:NorthAmerica",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "South East US",
+                "searchToken": "R:SouthEastUS",
+                "relevanceScore": 67,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "US - States & Capitals",
+                "searchToken": "R:USStatesCapitals",
+                "relevanceScore": 75,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Florida",
+                "searchToken": "R:Florida",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "New York",
+                "searchToken": "R:NewYork",
+                "relevanceScore": 66,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Analyst Comments",
+                "searchToken": "T:AnalystComments",
+                "relevanceScore": 11,
+                "relevanceBand": "Low"
+              },
+              {
+                "name": "Chief Executive Officer (CEO) - Quotes & News",
+                "searchToken": "T:ChiefExecutiveOfficerCEOQuotesNews",
+                "relevanceScore": 68,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "OverallServices",
+                "searchToken": "T:OverallServices",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Gene Synthesis Trends",
+                "searchToken": "T:GeneSynthesisTrends",
+                "relevanceScore": 33,
+                "relevanceBand": "Medium"
+              },
+              {
+                "name": "Sweden",
+                "searchToken": "R:Sweden",
+                "relevanceScore": 100,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "European Union (EU)",
+                "searchToken": "R:EuropeanUnionEU",
+                "relevanceScore": 100,
+                "relevanceBand": "High"
+              },
+              {
+                "name": "Europe",
+                "searchToken": "R:Europe",
+                "relevanceScore": 100,
+                "relevanceBand": "High"
+              }
+            ],
+            "title": "Microsoft Corporation's (MSFT) CEO Satya Nadella Hosts 2014 Annual Meeting of Shareholders (Transcript)",
+            "groupId": "G:477025728",
+            "snippet": "Today's presentation may contain forward-looking statements, which are predictions, projections or other statements about future events, based on current expectations and assumptions. Actual results may differ materially from these forward-looking statements because of a variety of risks and uncertainties about our business, which are discussed today or described in our filings with the..."
+          }
+        ],
+        "totalItemCount": 924,
+        "itemOffset": 0,
+        "itemCount": 10
+      },"ft": {
+        "tweets": [
+          {
+            "timeStamp": "04 Dec 2014 13:41:00 UTC",
+            "userName": "nyonnais",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "$BKS \"entered into an agreement with Microsoft to acquire its entire preferred interest in NOOK Media, LLC.\"",
+            "tweetId": "TW:540501157949734913",
+            "tweetText": "$BKS \"entered into an agreement with Microsoft to acquire its entire preferred interest in NOOK Media, LLC.\"",
+            "tweetHtml": "<span class='bold'><span class='colorGreen'>$BKS</span> \"entered into an agreement with Microsoft to acquire its entire preferred interest in NOOK Media, LLC.\"</span>",
+            "authorName": "Steve",
+            "authorDescription": "Economist, concentrated value/event-driven investor, American expat.",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/378800000627867586/c0017f1e29f0e5c2a67492016b4c3953_normal.jpeg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 14:02:00 UTC",
+            "link": [
+              "http://www.cio.com/article/2854956/mobile-apps/microsofts-latest-buy-the-acompli-email-app-is-a-worthy-download.html#tk.rss_all"
+            ],
+            "userName": "DirectNetworks",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft's Latest Buy, Acompli, is a Great Email App - Microsoft this week announced it had acquired Acompli, an",
+            "tweetId": "TW:540506325286125568",
+            "tweetText": "Microsoft's Latest Buy, Acompli, is a Great Email App - Microsoft this week announced it had acquired Acompli, an ... http://t.co/vPs8k3uZ1W",
+            "tweetHtml": "<span class='bold'>Microsoft's Latest Buy, Acompli, is a Great Email App - Microsoft this week announced it had acquired Acompli, an</span> ... <span class='lightGrey'>http://t.co/vPs8k3uZ1W</span>",
+            "authorName": "DirectNetworks",
+            "authorDescription": "Cloud & Managed IT Services Provider,  1st Webtop Provider in Midwest, Reducer of  IT Cost, Enabler of Client Staff Productivity \n#Cloud #ITSupport #HelpDesk",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/1760166063/D-logo2011_normal.jpg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 13:55:00 UTC",
+            "link": [
+              "http://www.winbeta.org/news/microsoft-says-office-365-helps-companies-stay-compliant-laws-and-regulations"
+            ],
+            "userName": "chandresh27",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft says Office 365 helps companies stay compliant with laws and regulations",
+            "tweetId": "TW:540504611703259136",
+            "tweetText": "Microsoft says Office 365 helps companies stay compliant with laws and regulations http://t.co/MqoxqFVWXz",
+            "tweetHtml": "<span class='bold'>Microsoft says Office 365 helps companies stay compliant with laws and regulations</span> <span class='lightGrey'>http://t.co/MqoxqFVWXz</span>",
+            "authorName": "Chandresh J Shah",
+            "authorDescription": "EHR/EMR Marketing Consultant. Web Based Electronic Medical Records, Medical Health Records. Also, http://www.webbasedemr.com",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/1654758231/0026-smaller_normal.jpg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 08:43:00 UTC",
+            "userName": "AdmMarsiu",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft is expected to report lower first-quarter earnings on Thursday, October 23, 2014",
+            "tweetId": "TW:540426164733358080",
+            "tweetText": "Microsoft is expected to report lower first-quarter earnings on Thursday, October 23, 2014",
+            "tweetHtml": "<span class='bold'>Microsoft is expected to report lower first-quarter earnings on Thursday, October 23, 2014</span>",
+            "authorName": "Rick Tetrault",
+            "authorDescription": "Me  theatre, have wife, have  teen and baby, surf web, do podcast.",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/527660058432131073/uzO_XsCv_normal.jpeg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 14:00:00 UTC",
+            "link": [
+              "http://www.digitalfirst.com/2014/12/03/financials-office-365-preview/"
+            ],
+            "userName": "VideoTrainingAU",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft Financials for Office 365 finally makes an appearance. The SMB market is starting to be spoiled for choice...",
+            "tweetId": "TW:540505853598498816",
+            "tweetText": "Microsoft Financials for Office 365 finally makes an appearance. The SMB market is starting to be spoiled for choice...http://t.co/scTSs4ZqfQ",
+            "tweetHtml": "<span class='bold'>Microsoft Financials for Office 365 finally makes an appearance. The SMB market is starting to be spoiled for choice...</span><span class='lightGrey'>http://t.co/scTSs4ZqfQ</span>",
+            "authorName": "VideoTraining.com.au",
+            "authorDescription": "Online Computer Training Made Easy!\n\nCost effective online computer training that is available wherever and whenever you are.\n\nWhat do you want to learn today?",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/484471637748637700/017nIkzA_normal.png"
+          },
+          {
+            "timeStamp": "04 Dec 2014 11:30:00 UTC",
+            "link": [
+              "http://www.techtimes.com/articles/21151/20141201/microsoft-planning-to-launch-three-windows-phone-devices-next-year-as-windows-phone-8-1-takes-51-percent-market-share.htm"
+            ],
+            "userName": "ResourceiT_Ltd",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft Planning to Launch 3 Lumia Devices as Windows Phone 8.1 Takes 51 Percent Market Share",
+            "tweetId": "TW:540468175750823936",
+            "tweetText": "Microsoft Planning to Launch 3 Lumia Devices as Windows Phone 8.1 Takes 51 Percent Market Share #windowsphone http://t.co/qSyRtOowdi",
+            "tweetHtml": "<span class='bold'>Microsoft Planning to Launch 3 Lumia Devices as Windows Phone 8.1 Takes 51 Percent Market Share</span>  <span class='colorBlue'>#windowsphone</span> <span class='lightGrey'>http://t.co/qSyRtOowdi</span>",
+            "authorName": "ResourceiT ",
+            "authorDescription": "We power channel partnerships through compelling creative, transformational training and alliance acceleration - it's what we do.",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/506358438578749442/wtODd8WW_normal.png"
+          },
+          {
+            "timeStamp": "04 Dec 2014 08:26:00 UTC",
+            "link": [
+              "http://ismagazine.com/Home/tabid/709/Post/3791/Microsoft-Acquires-Acompli-for-Outlook-Replacement"
+            ],
+            "userName": "ferndruryfedr",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft Acquires Acompli intended for Take on life Substitution.",
+            "tweetId": "TW:540421877752008705",
+            "tweetText": "Microsoft Acquires Acompli intended for Take on life Substitution. http://t.co/CdeFfsWdOV",
+            "tweetHtml": "<span class='bold'>Microsoft Acquires Acompli intended for Take on life Substitution.</span> <span class='lightGrey'>http://t.co/CdeFfsWdOV</span>",
+            "authorName": "Fern Drury",
+            "authorDescription": "Normal human being.",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/470468872626130944/-n5ByCpm_normal.jpeg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 13:35:00 UTC",
+            "userName": "duranlhal",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft sued as lawsuits over employee no-poach deal mount",
+            "tweetId": "TW:540499587543597056",
+            "tweetText": "Microsoft sued as lawsuits over employee no-poach deal mount",
+            "tweetHtml": "<span class='bold'>Microsoft sued as lawsuits over employee no-poach deal mount</span>",
+            "authorName": "duran",
+            "authorDescription": "Dealer Services Regional   Autotrader",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/522097494012858368/luMzavWV_normal.jpeg"
+          },
+          {
+            "timeStamp": "04 Dec 2014 10:14:00 UTC",
+            "link": [
+              "http://www.neowin.net/news/microsoft-announces-record-dividend-for-second-quarter-in-a-row",
+              "http://twitter.com/NeowinFeed/status/540448938537791489/photo/1"
+            ],
+            "userName": "NeowinFeed",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft announces record dividend for second quarter in a row",
+            "tweetId": "TW:540448938537791489",
+            "tweetText": "Microsoft announces record dividend for second quarter in a row http://t.co/TAo5QRs9Jo http://t.co/g5m5RD1zBx",
+            "tweetHtml": "<span class='bold'>Barnes & Noble Disappoints Again with Lower Earnings; Terminates Microsoft Nook Partnership <span class='lightGrey'>http://t.co/hhZxegGI8R</span> [reg. rqrd.]</span>",
+            "authorName": "Neowin",
+            "authorDescription": "Tech news, views and reviews, covering Microsoft and the world of tech.",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/479253402367455232/XTmHvPXh_normal.png"
+          },
+          {
+            "timeStamp": "04 Dec 2014 08:44:00 UTC",
+            "link": [
+              "http://blogs.technet.com/b/in_the_cloud/archive/2014/11/11/why-hybrid-cloud-amp-how-to-start-implementing.aspx?WT.mc_id=Social_ServerCloud_General_TTD&WT.mc_id=Social_TW_OutgoingPromotion_20141203_117960520_MSCloud&linkId=10967028"
+            ],
+            "userName": "TonyMackelworth",
+            "entity": {
+              "name": "Microsoft Corporation",
+              "searchToken": "C:MicrosoftCorporation"
+            },
+            "title": "Microsoft set out benefits of #hybridcloud http://t.co/qMXaJ2w90a | Azure Pack for Windows Server key in strategy to encourage #Azure IaaS",
+            "tweetId": "TW:540426339262951424",
+            "tweetText": "Microsoft set out benefits of #hybridcloud http://t.co/qMXaJ2w90a | Azure Pack for Windows Server key in strategy to encourage #Azure IaaS",
+            "tweetHtml": "<span class='bold'>Microsoft announces record dividend for second quarter in a row</span> <span class='lightGrey'>http://t.co/TAo5QRs9Jo</span> <span class='lightGrey'>http://t.co/g5m5RD1zBx</span>",
+            "authorName": "Tony Mackelworth",
+            "authorDescription": "Head of Microsoft Advisory Services - SoftwareONE",
+            "authorAvatar": "https://pbs.twimg.com/profile_images/378800000673971181/18bd640ed828e323ecd10484703b179f_normal.png"
+          }
+        ],
+        "totalItemCount": 150,
+        "itemOffset": 0,
+        "itemCount": 10
+      },
+         "bi":{
+            "title":"BUSINESS INFLUENCERS",
+            "nodes":[
+               {
+                  "name":"Doosan Power Systems Americas, Llc",
+                  "searchToken":"C:DoosanPowerSystemsAmericasLlc",
+                  "value":3.91,
+                  "intensity":5000,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Eco Power Solutions",
+                  "searchToken":"C:EcoPowerSolutions",
+                  "value":1.61,
+                  "intensity":319,
+                  "smartText":"219% above average"
+               },
+               {
+                  "name":"GE Power & Water",
+                  "searchToken":"C:GEPowerWater",
+                  "value":3.18,
+                  "intensity":283,
+                  "smartText":"183% above average"
+               },
+               {
+                  "name":"Hubbell Power Systems, Inc.",
+                  "searchToken":"C:HubbellPowerSystemsInc",
+                  "value":3.91,
+                  "intensity":1563,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Ideal Power Inc",
+                  "searchToken":"C:IdealPowerInc",
+                  "value":2.4,
+                  "intensity":717,
+                  "smartText":"617% above average"
+               },
+               {
+                  "name":"Kohler Power Systems",
+                  "searchToken":"C:KohlerPowerSystems",
+                  "value":2.2,
+                  "intensity":130,
+                  "smartText":"30% above average"
+               },
+               {
+                  "name":"MacLean Power Systems",
+                  "searchToken":"C:MacLeanPowerSystems",
+                  "value":5.74,
+                  "intensity":507,
+                  "smartText":"407% above average"
+               }
+            ]
+         },
+         "tt":{
+            "title":"MONITOR ACTIVITY TRENDS",
+            "nodes":[
+               {
+                  "name":"Doosan Power Systems Americas, Llc",
+                  "searchToken":"C:DoosanPowerSystemsAmericasLlc",
+                  "value":3.91,
+                  "intensity":5000,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Eco Power Solutions",
+                  "searchToken":"C:EcoPowerSolutions",
+                  "value":1.61,
+                  "intensity":319,
+                  "smartText":"219% above average"
+               },
+               {
+                  "name":"GE Power & Water",
+                  "searchToken":"C:GEPowerWater",
+                  "value":3.18,
+                  "intensity":283,
+                  "smartText":"183% above average"
+               },
+               {
+                  "name":"Hubbell Power Systems, Inc.",
+                  "searchToken":"C:HubbellPowerSystemsInc",
+                  "value":3.91,
+                  "intensity":1563,
+                  "smartText":"10 times above average"
+               },
+               {
+                  "name":"Ideal Power Inc",
+                  "searchToken":"C:IdealPowerInc",
+                  "value":2.4,
+                  "intensity":717,
+                  "smartText":"617% above average"
+               },
+               {
+                  "name":"Kohler Power Systems",
+                  "searchToken":"C:KohlerPowerSystems",
+                  "value":2.2,
+                  "intensity":130,
+                  "smartText":"30% above average"
+               },
+               {
+                  "name":"MacLean Power Systems",
+                  "searchToken":"C:MacLeanPowerSystems",
+                  "value":5.74,
+                  "intensity":507,
+                  "smartText":"407% above average"
+               }
+            ]
+         },
+         "md":{
+            "title":"MARKET DRIVERS",
+            "nodes":[
+               {
+                  "name":"Gas Turbine Market",
+                  "searchToken":"T:GasTurbineMarket",
+                  "value":5.21,
+                  "intensity":390,
+                  "smartText":"290% above average"
+               },
+               {
+                  "name":"Flue-Gas Desulfurization (FGD)",
+                  "searchToken":"T:FlueGasDesulfurizationFGD",
+                  "value":4.43,
+                  "intensity":286,
+                  "smartText":"186% above average"
+               },
+               {
+                  "name":"Industrial Boiler Market",
+                  "searchToken":"T:IndustrialBoilerMarket",
+                  "value":5.21,
+                  "intensity":390,
+                  "smartText":"290% above average"
+               },
+               {
+                  "name":"Industrial Combustion Equipment",
+                  "searchToken":"T:IndustrialCombustionEquipment",
+                  "value":4.43,
+                  "intensity":286,
+                  "smartText":"186% above average"
+               }
+            ]
+         },
+         "twt":{
+            "title":"Business Twitter Trends",
+            "nodes":[
+               {
+                  "name":"Steam Turbine Industry Trends",
+                  "searchToken":"T:SteamTurbineIndustryTrends",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Generac Power Systems, Inc.",
+                  "searchToken":"C:GeneracPowerSystemsInc",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Himoinsa Power Systems, Inc",
+                  "searchToken":"C:HimoinsaPowerSystemsInc",
+                  "value":200,
+                  "intensity":0,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"Bituminous Coal Industry Trends",
+                  "searchToken":"T:BituminousCoalIndustryTrends",
+                  "value":200,
+                  "intensity":-1,
+                  "smartText":"100% above average"
+               },
+               {
+                  "name":"ABB, Inc.",
+                  "searchToken":"C:ABBInc",
+                  "value":200,
+                  "intensity":-1,
+                  "smartText":"100% above average and falling"
+               },
+               {
+                  "name":"Abb Pte. Ltd.",
+                  "searchToken":"C:AbbPteLtd",
+                  "value":179,
+                  "intensity":-1,
+                  "smartText":"79% above average falling"
+               }
+            ]
+         },
+         "gl":{
+            "title":"REGIONAL LENS: GLOBAL",
+            "nodes":[
+               {
+                  "name":"Costa Rica",
+                  "searchToken":"R:CostaRica",
+                  "value":10,
+                  "intensity":100,
+                  "smartText":"35% above average",
+                  "countryCode":"cr"
+               },
+               {
+                  "name":"Netherlands",
+                  "searchToken":"R:Netherlands",
+                  "value":377,
+                  "intensity":16,
+                  "smartText":"35% above average",
+                  "countryCode":"nl"
+               },
+               {
+                  "name":"India",
+                  "searchToken":"R:India",
+                  "value":1812,
+                  "intensity":135,
+                  "smartText":"35% above average",
+                  "countryCode":"in"
+               },
+               {
+                  "name":"Belgium",
+                  "searchToken":"R:Belgium",
+                  "value":42,
+                  "intensity":818,
+                  "smartText":"718% above average",
+                  "countryCode":"be"
+               },
+               {
+                  "name":"United States of America",
+                  "searchToken":"RF:UnitedStatesofAmerica",
+                  "value":12448,
+                  "intensity":106,
+                  "smartText":"6% above average",
+                  "countryCode":"us"
+               },
+               {
+                  "name":"Armenia",
+                  "searchToken":"R:Armenia",
+                  "value":18,
+                  "intensity":500,
+                  "smartText":"400% above average",
+                  "countryCode":"am"
+               }
+            ]
+         },
+         "rl":{
+            "title":"REGIONAL LENS: U.S.",
+            "nodes":[
+               {
+                  "name":"Idaho",
+                  "searchToken":"R:Idaho",
+                  "value":10,
+                  "intensity":200,
+                  "smartText":"100% above average",
+                  "stateCode":"id"
+               },
+               {
+                  "name":"California",
+                  "searchToken":"R:California",
+                  "value":8275,
+                  "intensity":118,
+                  "smartText":"18% above average",
+                  "stateCode":"ca"
+               },
+               {
+                  "name":"Florida",
+                  "searchToken":"R:Florida",
+                  "value":99,
+                  "intensity":126,
+                  "smartText":"26% above average",
+                  "stateCode":"fl"
+               },
+               {
+                  "name":"Oregon",
+                  "searchToken":"R:Oregon",
+                  "value":48,
+                  "intensity":130,
+                  "smartText":"30% above average",
+                  "stateCode":"or"
+               },
+               {
+                  "name":"Texas",
+                  "searchToken":"R:Texas",
+                  "value":399,
+                  "intensity":167,
+                  "smartText":"67% above average",
+                  "stateCode":"tx"
+               },
+               {
+                  "name":"Kentucky",
+                  "searchToken":"R:Kentucky",
+                  "value":31,
+                  "intensity":1500,
+                  "smartText":"10 times above average",
+                  "stateCode":"ky"
+               }
+            ]
+         }
+      }
+   }
+}

@@ -1,0 +1,411 @@
+<project name="StandardAPI" default="build-deploy-maven" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	<property name="build-dependencies" value="${basedir}/../../MI4/build-dependencies" />
+	
+	<property name="lib" value="${basedir}/../../MI4/lib" />
+	<property name="maven.ant.tasks.url" value="http://central.maven.org/maven2/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar" />
+	<property name="maven.ant.tasks.jar" value="${lib}/mavenant/maven-ant-tasks-2.1.3.jar" />
+	<available property="maven.ant.tasks.jar.exists" file="${maven.ant.tasks.jar}" />
+
+	<target name="bootstrap.maven.tasks" unless="maven.ant.tasks.jar.exists">
+		<mkdir dir="${lib}/mavenant" />
+		<get src="${maven.ant.tasks.url}" dest="${maven.ant.tasks.jar}" />
+	</target>
+	<target name="init">
+		<!-- read properties from the build.properties, if any -->
+		<property name="build-propfile" value="${basedir}/../api-ant/build.properties" />
+		<property file="${build-propfile}" />
+		<tstamp />
+
+		<property name="name" value="StandardAPI" />
+		<echo message="Branch = ${branch}" />
+		<echo message="Version= ${version}" />
+		<echo message="Build= ${build}" />
+		<echo message="Tag= ${tag}" />
+		<delete dir="${basedir}/target" />
+
+		<property name="title" value="FirstRain StandardAPI Project" />
+		<property name="package" value="com.firstrain.web" />
+		<property name="build.dir" value="${basedir}/build" />
+		<property name="build.classes.dir" value="${build.dir}/classes" />
+		<property name="build.classes.conf.dir" value="${build.classes.dir}/conf" />
+		<property name="buildtime" value="${DSTAMP}-${TSTAMP}" />
+		<property name="src.java.dir" value="${basedir}/src/main/java" />
+		<property name="dist.dir" value="${basedir}/dist" />
+		<property name="module" value="standard" />
+
+		<property name="javac.optimize" value="true" />
+		<property name="javac.debug" value="true" />
+		<property name="javac.deprecation" value="yes" />
+
+		<echo message="lib = ${lib}" />
+		<!-- now combine the classpaths -->
+
+		<path id="maven-ant-tasks.classpath" path="${build-dependencies}/mavenant/maven-ant-tasks-2.1.3.jar" />
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="maven-ant-tasks.classpath" />
+
+		<!--load pom.xml for dependencies -->
+		<artifact:pom id="pomfile" file="pom.xml" inheritAllProperties="true" />
+		<artifact:dependencies filesetId="mvn-dependencies" pomRefId="pomfile" cacheDependencyRefs="true" useScope="compile" />
+		<path id="classpath">
+			<fileset refid="mvn-dependencies" />
+		</path>
+		<property name="classpath" refid="classpath" />
+	</target>
+	<!-- ######################################################### -->
+	<target name="clean" depends="init" description="Removes generated files">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<!-- ######################################################### -->
+	<target name="compile" depends="clean" description="compiles source files">
+		<mkdir dir="${build.classes.dir}" />
+		<mkdir dir="${dist.dir}/${module}/WEB-INF/classes/META-INF" />
+		<mkdir dir="${dist.dir}/static/api/js/${module}/v1" />
+		<mkdir dir="${dist.dir}/static/api/css/${module}/v1" />
+		<mkdir dir="${dist.dir}/static/api/images" />
+		<echo message="classpath= ${classpath}" />
+		<javac destdir="${build.classes.dir}" srcdir="${src.java.dir}" classpath="${classpath}" debug="${javac.debug}" deprecation="${javac.deprecation}" optimize="${javac.optimize}" encoding="UTF-8"/>
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.java.dir}">
+				<not>
+					<filename name="**/*.java" />
+				</not>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build-jar" depends="compile">
+
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/${module}/WEB-INF/lib/" />
+
+		<jar jarfile="${dist.dir}/${module}/WEB-INF/lib/${name}.jar">
+			<fileset dir="${build.classes.dir}" />
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Package" value="${package}" />
+				<attribute name="Extension-Name" value="${name}" />
+				<attribute name="Specification-Title" value="${title}" />
+				<attribute name="Implementation-Vendor" value="firstRain" />
+				<attribute name="Implementation-Branch" value="${branch}" />
+				<attribute name="Implementation-Version" value="${version}" />
+				<attribute name="Implementation-Build" value="${build}" />
+				<attribute name="Implementation-Tag" value="${tag}" />
+				<attribute name="Implementation-BuildTime" value="${buildtime}" />
+			</manifest>
+		</jar>
+
+		<copy todir="${dist.dir}/${module}/WEB-INF/lib/" flatten="true">
+			<fileset refid="mvn-dependencies"/>
+		</copy>
+		<artifact:install file="${dist.dir}/${module}/WEB-INF/lib/${name}.jar">
+			<pom refid="pomfile"/>
+		</artifact:install>
+	</target>
+	<target name="runOnce">
+		<!--Setting up compile intial property -->
+		<property name="runComplileOnce" value="alreadyRan" />
+	</target>
+
+
+	<!-- ================================= Project Name :- standard ================================= -->
+	<target name="standard" depends="build-jar">
+		<property name="standard.dist" value="${dist.dir}/standard" />
+		<echo>dist dir standard ${dist.dir}</echo>
+		<fileset dir="${basedir}/src/main/webapp/WEB-INF/pages" id="standard.pages">
+			<include name="errorMessage.jsp" />
+			<include name="view.jsp" />
+			<include name="jsenv.jsp" />
+		</fileset>
+		<fileset dir="${basedir}/src/main/webapp/ftltemplate" id="standard.ftl">
+			<include name="*" />
+		</fileset>
+		<fileset dir="${basedir}/src/main/webapp/js" id="standard.js">
+			<include name="visual-init.js" />
+			<include name="wvchart-init.js" />
+			<include name="mtchart-init.js" />
+		</fileset>
+		<fileset dir="${basedir}/src/main/webapp/js/RGraph" id="standard.rgraph.js">
+			<include name="*" />
+		</fileset>
+		<copy todir="${dist.dir}/static/api/css/${module}/v1" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/css">
+				<include name="fr.css" />
+				<include name="dnbi-fr.css" />
+				<include name="fr-layout.css" />
+				<include name="mcustomscroll.css" />
+				<include name="visualization.css" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/static/api/js/${module}/v1" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/js">
+				<exclude name="visual-init.js" />
+				<exclude name="wvchart-init.js" />
+				<exclude name="mtchart-init.js" />
+				<exclude name="RGraph/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/static/api/images" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/images" />
+		</copy>
+		<fileset dir="${basedir}/src/main/webapp/staticdatafiles" id="standard.staticdata">
+			<include name="*" />
+		</fileset>
+		<copy todir="${dist.dir}/standard/staticdatafiles" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="standard.staticdata" />
+		</copy>
+		<copy todir="${dist.dir}/standard" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset file="${basedir}/src/main/webapp/healthmonitor.jsp" />
+			<fileset file="${basedir}/src/main/webapp/proxy.html" />
+		</copy>
+		<antcall target="disttemplate">
+			<param name="PROJECTNAME" value="standard" />
+		</antcall>
+		<fileset dir="${basedir}/../ServiceAPI/dist/ServiceAPI/conf" id="persistence-config" />
+		<copy todir="${dist.dir}/${module}/WEB-INF/classes/META-INF">
+			<fileset refid="persistence-config" />
+		</copy>
+	</target>
+
+	<target name="disttemplate" description="Common code can be handled here projects">
+		<copy todir="${dist.dir}/${PROJECTNAME}/WEB-INF" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/WEB-INF">
+				<include name="web.xml.template" />
+				<include name="spring-dummy.xml" />
+				<include name="spring-servlet.xml" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/ftltemplate" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.ftl" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/css" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.css" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/js" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.js" />
+		</copy>
+		<copy todir="${dist.dir}/static/api/js/${PROJECTNAME}/v1" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.rgraph.js" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/images" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.images" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/WEB-INF/pages" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset refid="${PROJECTNAME}.pages" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/WEB-INF/lib" flatten="true" failonerror="false" overwrite="false">
+				<fileset refid="mvn-dependencies" />
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/WEB-INF/classes" failonerror="false">
+			<fileset dir="${basedir}/src/main/resources">
+				<include name="ServiceConfig.xml.template" />
+				<include name="log4j.properties.template" />
+				<include name="resource/message.properties" />
+				<include name="resource/oscache.properties.template" />
+				<include name="resource/spring_config.properties.template" />
+				<include name="resource/Regional_Category.xls" />
+				<include name="resource/Sectorwise_CXO.xlsx" />
+				<include name="resource/Job_Titles.xlsx" />
+			</fileset>
+			<fileset dir="${basedir}/../../configurations/Configurations/stopWords" id="smconfig">
+				<include name="FinalStopList.txt" />
+			</fileset>
+			<fileset dir="${basedir}/../../configurations/Configurations/dictionary/wordnet" id="dictionary">
+				<include name="dict.zip" />
+			</fileset>
+			<fileset dir="${basedir}\..\..\MI4\FRSolrServerExtension14/indexconf/document" id="platinum">
+			    <include name="PlatinumSourcesV1.txt" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/WEB-INF/classes/resource">
+			<fileset dir="${basedir}/../../configurations/Configurations/xml" id="company-ending-words">
+				<include name="endings.xml" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/${PROJECTNAME}/sample" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/sample">
+				<include name="home.html" />
+			</fileset>
+		</copy>
+		<antcall target="compressjs">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="RGraph.common.core.js,RGraph.common.dynamic.js,RGraph.common.tooltips.js,RGraph.line.js,RGraph.drawing.image.js,RGraph.bar.js" />
+			<param name="OUTPUTFILENAME" value="rgraph" />
+		</antcall>
+		<antcall target="compressjs">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="fr.vscroll.js,jquery-ui-1.10.2.custom.js,iscroll.js,jquery.mCustomScrollbar.js,jquery.mousewheel.min.js" />
+			<param name="OUTPUTFILENAME" value="vscroll" />
+		</antcall>
+		<antcall target="compressjs">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="jquery.flot.js,jquery.flot.symbol.js,jquery.frchart.js" />
+			<param name="OUTPUTFILENAME" value="webvolume" />
+		</antcall>
+		<antcall target="compressjssinglefileLocal">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="visual-init.js" />
+		</antcall>
+		<antcall target="compressjssinglefileLocal">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="wvchart-init.js" />
+		</antcall>
+		<antcall target="compressjssinglefileLocal">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="mtchart-init.js" />
+		</antcall>
+
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="jquery-migrate-1.1.1.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="common-utils.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="visualization.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="include-jquery.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="fr-ly-include-jquery.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="graph.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="custom.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="custom-ly.js" />
+		</antcall>
+		<antcall target="compressjssinglefile">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="excanvas.js" />
+		</antcall>
+
+		<!--Compress css -->
+		<antcall target="compresscss">
+			<param name="PROJECTNAME" value="${PROJECTNAME}" />
+			<param name="FILESTOCOMPRESS" value="mcustomscroll.css,fr.css, dnbi-fr.css, fr-layout.css, visualization.css" />
+		</antcall>
+
+		<!-- dist for static api -->
+		<mkdir dir="${dist.dir}/staticapi" />
+		<copy todir="${dist.dir}/staticapi" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${dist.dir}/${PROJECTNAME}">
+				<exclude name="WEB-INF/classes/resource/spring_config.properties.template" />
+				<exclude name="WEB-INF/spring-servlet.xml" />
+				<exclude name="WEB-INF/classes/FinalStopList.txt" />
+				<exclude name="WEB-INF/classes/dict.zip" />
+				<exclude name="WEB-INF/classes/ServiceConfig.xml.template" />
+				<exclude name="WEB-INF/classes/resource/oscache.properties.template" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/src/main/webapp/WEB-INF/pages/view-staticapi.jsp" tofile="${dist.dir}/staticapi/WEB-INF/pages/view.jsp" overwrite="true" />
+		<copy file="${basedir}/src/main/webapp/WEB-INF/spring-servlet-staticapi.xml" tofile="${dist.dir}/staticapi/WEB-INF/spring-servlet.xml" overwrite="true" />
+		<copy file="${basedir}/src/main/resources/resource/spring_config-staticapi.properties.template" tofile="${dist.dir}/staticapi/WEB-INF/classes/resource/spring_config.properties-template" overwrite="true" />
+		<copy todir="${dist.dir}/static/api/css/${PROJECTNAME}/static" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/css">
+				<include name="fr-layout.css" />
+				<include name="mcustomscroll.css" />
+				<include name="visualization.css" />
+			</fileset>
+			<fileset dir="${basedir}/src/main/webapp/css/staticdata">
+				<include name="fr.css" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/static/api/images" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/images" />
+		</copy>
+		<copy todir="${dist.dir}/static/api/js/${PROJECTNAME}/static" flatten="false" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/js/static">
+				<exclude name="visual-init.js" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/staticapi/ftltemplate" flatten="true" includeEmptyDirs="false" overwrite="true" failonerror="false">
+			<fileset dir="${basedir}/src/main/webapp/ftltemplate/staticdata" />
+		</copy>
+		<concat destfile="${dist.dir}/static/api/js/${PROJECTNAME}/static/webvolume.js">
+			<fileset dir="${basedir}/src/main/webapp/js/static" includes="jquery-migrate-1.1.1.js,jquery.flot.js,jquery.flot.symbol.js,jquery.frchart.js" />
+		</concat>
+	</target>
+
+	<target name="compressjs" description="Compress .js to min.js and concate multiple js in single js">
+		<mkdir dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1/compressjs" />
+		<apply executable="java" parallel="false" force="true">
+			<filelist dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1" files="${FILESTOCOMPRESS}" />
+			<arg line="-jar" />
+			<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar" />
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<srcfile />
+			<arg line="-o" />
+			<mapper type="glob" from="*.js" to="${dist.dir}/static/api/js/${PROJECTNAME}/v1/compressjs/*.min.js" />
+			<targetfile />
+		</apply>
+		<concat destfile="${dist.dir}/static/api/js/${PROJECTNAME}/v1/${OUTPUTFILENAME}.min.js">
+			<fileset dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1/compressjs" includes="*" />
+		</concat>
+		<concat destfile="${dist.dir}/static/api/js/${PROJECTNAME}/v1/${OUTPUTFILENAME}.js">
+			<fileset dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1" includes="${FILESTOCOMPRESS}" />
+		</concat>
+		<delete includeemptydirs="true">
+			<!--Uncomment to clean js already compressed -->
+			<fileset dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1" includes="${FILESTOCOMPRESS}" />
+			<fileset dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1/compressjs" />
+		</delete>
+	</target>
+
+	<target name="compressjssinglefile" description="Compress .js to min.js and concate multiple js in single js">
+		<apply executable="java" parallel="false" force="true">
+			<filelist dir="${dist.dir}/static/api/js/${PROJECTNAME}/v1" files="${FILESTOCOMPRESS}" />
+			<arg line="-jar" />
+			<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar" />
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<srcfile />
+			<arg line="-o" />
+			<mapper type="glob" from="*.js" to="${dist.dir}/static/api/js/${PROJECTNAME}/v1/*.min.js" />
+			<targetfile />
+		</apply>
+	</target>
+
+	<target name="compressjssinglefileLocal" description="Compress .js to min.js and concate multiple js in single js">
+		<apply executable="java" parallel="false" force="true">
+			<filelist dir="${dist.dir}/${PROJECTNAME}/js" files="${FILESTOCOMPRESS}" />
+			<arg line="-jar" />
+			<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar" />
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<srcfile />
+			<arg line="-o" />
+			<mapper type="glob" from="*.js" to="${dist.dir}/${PROJECTNAME}/js/*.min.js" />
+			<targetfile />
+		</apply>
+	</target>
+
+	<target name="compresscss" description="Compress .css to min.css">
+		<apply executable="java" parallel="false" force="true">
+			<filelist dir="${dist.dir}/static/api/css/${PROJECTNAME}/v1" files="${FILESTOCOMPRESS}" />
+			<arg line="-jar" />
+			<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar" />
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<srcfile />
+			<arg line="-o" />
+			<mapper type="glob" from="*.css" to="${dist.dir}/static/api/css/${PROJECTNAME}/v1/*.min.css" />
+			<targetfile />
+		</apply>
+	</target>
+	<target name="build-deploy-maven" depends="standard" description="build and deploy to specific location" />
+</project>

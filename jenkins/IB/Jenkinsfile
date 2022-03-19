@@ -1,0 +1,141 @@
+#!/usr/bin/env groovy
+@Library(['eng-build-utils']) _
+
+pipeline {
+    agent { 
+        node {
+            label "${env.DOCKER_NODE_LABEL}"
+        }
+    }
+    options {
+        timestamps()
+    }
+    stages {
+        stage('Checkout configurations') {
+            steps {
+                dir("configurations") {
+                    git branch: 'develop', credentialsId: "${env.GITHUB_CREDENTIALS_ID}", url: 'git@github.com:trilogy-group/ignite-firstrain-configurations.git'
+                }   
+            }   
+        }
+        stage('Set version') {
+            steps {
+                dir("api/parent_api") {
+                    sh "mvn versions:set -DnewVersion=${env.BUILD_VERSION}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir("api/parent_api") {
+                    devfactory (
+                        portfolio: 'Ignite',
+                        product: 'Firstrain',
+                        productVersion: "${env.ALINE_PRODUCT_VERSION}",
+                        types: 'Java',
+                        scmRelativeDir: '../',
+                        processTests: false,
+                    ) {
+                        sh "mvn clean verify -U ${env.MAVEN_ARGS} -DskipTests=${env.SKIP_UTs} -DskipITs=${env.SKIP_ITs}"
+                    }
+                }
+                dir("api") {
+                    script {
+                        def files = findFiles(glob: '**/target/**/TEST-*.xml')
+                        if (files) {
+                            junit '**/target/**/TEST-*.xml'
+                        }
+                    }
+                }
+            }
+        }
+        stage("Jacoco Publish")
+        {
+            when { expression { return params.CHECK_COVERAGE }}
+            steps {
+                script {
+                    files = findFiles(glob: "**/jacoco.exec")
+                    if (files) {
+                        jacoco (
+                            exclusionPattern: '**/*Test*.class',
+                            buildOverBuild: true,
+                            deltaClassCoverage: "${env.DELTA_CLASS_COVERAGE}",
+                            deltaLineCoverage: "${env.DELTA_LINE_COVERAGE}",
+                            deltaMethodCoverage: "${env.DELTA_METHOD_COVERAGE}",
+                            deltaInstructionCoverage: "${env.DELTA_INSTRUCTION_COVERAGE}",
+                            deltaBranchCoverage: "${env.DELTA_BRANCH_COVERAGE}",
+                            deltaComplexityCoverage: "${env.DELTA_COMPLEXITY_COVERAGE}"
+                        )
+                    }
+                }
+            }   
+        }   
+        stage('Deploy') {
+          steps {
+              dir("api/parent_api") {
+                  sh "mvn deploy ${env.MAVEN_ARGS} -DskipTests -DskipITs"
+              }
+          }
+        }
+        stage ("Docker-EF") {
+            when {expression { return params.BUILD_DOCKER }}
+            parallel {
+                stage('API-RC') {
+                    steps {
+                        build job: "FirstRain Projects/Docker/API-RC",
+                                        parameters: [
+                                            [$class: 'StringParameterValue', name: 'MODULE_NAME', value: "API-RC"],
+                                            [$class: 'StringParameterValue', name: 'PROJECT_VERSION', value: "${env.BUILD_VERSION}"],
+                                            [$class: 'StringParameterValue', name: 'BUILD_CONFIG', value: "SNAPSHOT"]
+                                        ]
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            dir ("api") {
+                // PUSH TO BUILD
+                // set gitHub commit status
+                script {
+                    echo "CURRENT BUILD RESULT: ${currentBuild.currentResult}"
+                    echo "CURRENT GITHUB URL: ${env.GIT_URL}"
+                    echo "CURRENT GITHUB COMMIT: ${env.GIT_COMMIT}"
+                    echo "CUSTOM GITHUB PROJECT URL: ${env.GITHUB_PROJECT_URL}"
+
+                    // it shoud gives us previous commit,
+                    // which will be used to set status on,
+                    // and not on virtual merge commit
+                    def previousCommit = sh (script: "git show HEAD | grep Merge |  tail -1 | awk '{print \$2}'", returnStdout: true).trim()
+                    sh("echo 'PREVIOUS GITHUB COMMIT: ${previousCommit}'")
+
+                    def commitToSetStatusOn = "${env.GIT_COMMIT}"
+
+                    // special case fo PR builds, we should set github status to previous commit
+                    if ("${env.GITHUB_CONTEXT}" == "jenkins-pr/build-result" ) {
+                        commitToSetStatusOn = previousCommit
+                    }
+
+                    // if this is not PR job
+                    if ("${env.GITHUB_CONTEXT}" != "jenkins-pr/build-result" ) {
+                        def githubCommit = new com.aurea.setGitHubCommitStatus()
+                        githubCommit.setGitHubCommitStatus("Build ${env.BUILD_VERSION}", "${currentBuild.currentResult}", "${env.GITHUB_PROJECT_URL}", "${commitToSetStatusOn}", "${env.GITHUB_CONTEXT}")
+                    }
+                }
+                
+                script {
+                    def comitterEmail = sh (
+                        script: "git rev-parse HEAD | git show --format='%ae' | grep -m1 ''",
+                        returnStdout: true
+                    ).trim()
+                    
+                    step([$class: 'Mailer',
+                        recipients: "${comitterEmail},${env.EMAIL_TO}",
+                        notifyEveryUnstableBuild: false
+                    ])
+                }   
+            }
+        }
+    }
+}

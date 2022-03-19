@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.firstrain</groupId>
+		<artifactId>mi4-parent</artifactId>
+		<version>1.0</version>
+	    <relativePath>../parent_api/pom.xml</relativePath>	
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>std-api-parent</artifactId>
+	<packaging>pom</packaging>
+	<description>The core srtandard apis parent POM file.</description>
+	<modules>
+		<module>../CustomAPI</module>
+		<module>../DomainModel</module>
+		<module>../ServiceAPI</module>
+		<module>../StandardAPI</module>
+		<module>../StandardFeed</module>
+	</modules>
+</project>

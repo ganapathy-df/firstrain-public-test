@@ -1,0 +1,27 @@
+<Context docBase="{PROP_WEBAPP_DEPLOY_PATH}">
+	<!-- This configuration file should be renamed as the name of path to this webapp and
+		be put under conf/{enging}/{host} such as conf\Catalina\localhost. 
+		The root tag should also include docBase specified to point to the shared webapp directory.
+		e.g. <Context docBase="C:\deploy\CapitalIQFeedEngine\webapp" >
+	-->
+	
+	<!-- reference global jdbc resources used by this application, see below for define local jdbc resource -->
+	<ResourceLink name="jdbc/TestDB" global="jdbc/TestDB" type="javax.sql.DataSource" />
+
+	<!-- below two parameter is for PipelineDriver's jsp sets. Entry jsp being PipelineInfo.jsp -->
+	<Parameter name="PipelineConfigPath" value="{PROP_INSTANCE_DEPLOY_PATH}\conf\PipelineConfig.xml" override="false"/>
+	<Parameter name="Log4jConfigPath" value="{PROP_INSTANCE_DEPLOY_PATH}\conf\cpflog4j.properties" override="false"/>
+
+    <!-- We could also choose to declear the resource locally
+	<Resource  auth="Container" description="DB Connection"
+		name="jdbc/TestDB"
+		type="javax.sql.DataSource"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		username="read" password="me!"
+		maxIdle="2"
+		maxWait="5000"
+		validationQuery="select 1"
+		url="jdbc:sqlserver://10.10.10.46:1433;DatabaseName=mi32;SelectMethod=direct"
+		maxActive="4"/>
+	-->
+</Context>

@@ -1,0 +1,10 @@
+{
+  "message": "Monitor created successfully.",
+  "result": {
+    "monitor": {
+      "name": "Power Generation",
+      "id": "M:399"
+    }
+  },
+  "status": "SUCCESS"
+}

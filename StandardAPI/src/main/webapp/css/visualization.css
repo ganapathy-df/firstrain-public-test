@@ -1,0 +1,63 @@
+/*------------------  analytics  ------------------------ */
+.ch-msg {font-family: "proxima-nova", Arial, Helvetica, sans-serif; left: 0; right: 0; text-align:center; font-size:12px; position:absolute; color: #666666; font-weight: bold; padding: 5px 0; top:50%; margin-top:-12px;}
+
+.TREE_MONITOR_SEARCH .treemapNode0  {background-color: #e6cbf7;}
+.TREE_MONITOR_SEARCH .treemapNode1  {background-color: #dbb6f2;}
+.TREE_MONITOR_SEARCH .treemapNode2  {background-color: #ce9ded;}
+.TREE_MONITOR_SEARCH .treemapNode3  {background-color: #c080e8;}
+.TREE_MONITOR_SEARCH .treemapNode4  {background-color: #af64de;}
+.TREE_MONITOR_SEARCH .treemapNode5  {background-color: #a35ddc;}
+.TREE_MONITOR_SEARCH .treemapNode6  {background-color: #994ed7;}
+
+.TREE_COMPANY .treemapNode0  {background-color: #cdebb7;}
+.TREE_COMPANY .treemapNode1  {background-color: #bded9d;}
+.TREE_COMPANY .treemapNode2  {background-color: #b7e896;}
+.TREE_COMPANY .treemapNode3  {background-color: #a9e880;}
+.TREE_COMPANY .treemapNode4  {background-color: #95de64;}
+.TREE_COMPANY .treemapNode5  {background-color: #7ac944;}
+.TREE_COMPANY .treemapNode6  {background-color: #6dbe36;}
+
+.TREE_TOPICS .treemapNode0  {background-color: #F9DCA6;}
+.TREE_TOPICS .treemapNode1  {background-color: #F9D48E;}
+.TREE_TOPICS .treemapNode2  {background-color: #FBCF7B;}
+.TREE_TOPICS .treemapNode3  {background-color: #F8C666;}
+.TREE_TOPICS .treemapNode4  {background-color: #F7BF52;}
+.TREE_TOPICS .treemapNode5  {background-color: #F9B52E;}
+.TREE_TOPICS .treemapNode6  {background-color: #fbaa08;}
+
+.treeNodeHover {box-shadow: inset 0 0 5px rgba(0,0,0,0.8); -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.8); -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.8); -ms-box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ch .treemap-label {text-shadow: 0px 1px 0px rgba(250,250,250,0.5);}
+.ch .TREE_MONITOR_SEARCH .treemap-label {color:#3E1765;}
+.ch .TREE_COMPANY .treemap-label {color:#3E552E;}
+.ch .TREE_TOPICS .treemap-label {color:#604309;}
+
+.ch svg path, .treemap-node {cursor:pointer;}
+.ch {display:inline-block; background:#ffffff; font-family: "proxima-nova", Arial, Helvetica, sans-serif;}
+.ch-lbl {font-size:11px; color:#666666; line-height:18px; height:auto; text-transform: uppercase; text-align:center; font-weight: bold;}
+.ch-as, .ch-hm {text-align:center;}
+.ch-as-i {display:inline-block; vertical-align: top;}
+.ch-bdr {margin-bottom:10px; border:1px solid #e5e5e5; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; padding:5px 10px 10px; position:relative; font-family: "proxima-nova", Arial, Helvetica, sans-serif;}
+/* -- accelerometer text -- */
+.hidden {display:none;}
+.fl {float:left;}
+.colorGreen {color:#659A1F;}
+.colorBlue {color:#005596;}
+.colorRed {color:#810501;}
+.lightGrey {color:#7d7d7d;}
+.colorOrange {color:#CD660B; font-weight:normal;}
+.bold {font-weight:bold;}
+.font14 {font-size:14px;}
+.acl-ch, .acl-ch-t {width:155px; background:#f5f5f5; border:1px solid #eeeeee; padding:7px 5px 8px; margin-right:2px; margin-bottom:2px; display:block;
+	-webkit-box-sizing: border-box; 
+   -moz-box-sizing:    border-box; 
+   box-sizing:         border-box;}
+.acl-ch {margin-right:0;}
+.acl-img, .acl-ch-img {cursor:pointer; text-align:center;}
+.acl-ch-img {margin-top:15px;}
+.acl-lbl {font-size:11px; color:#cd660b; line-height:15px; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.acl-ch-txtn {text-align:center; margin-top:15px; font-size:12px;}
+.acl-ch-txtn .floatleft {display: inline-block; float: none;}
+.analytic_tooltip_smartText {display: inline-block; padding:2px 0 0 3px; text-align: left; vertical-align: top;}
+
+.tltp-hd {font-weight:bold;}
+.tltp-txt {padding-top:2px; padding-bottom:2px;}

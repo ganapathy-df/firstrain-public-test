@@ -1,0 +1,16 @@
+*/build_ec/
+*/build/
+*/dist/
+*/target/
+node_modules
+.metadata
+lib
+RemoteSystemsTempFiles
+.idea
+.DS_Store
+.classpath
+.project
+.settings/
+.factorypath
+**/jacoco.exec
+*.iml

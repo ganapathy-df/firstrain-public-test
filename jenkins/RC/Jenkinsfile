@@ -1,0 +1,197 @@
+#!/usr/bin/env groovy
+@Library(['eng-build-utils']) _
+
+import java.text.SimpleDateFormat
+import groovy.json.JsonBuilder
+
+String generateVersion(String major, String release, String seqNum) {
+    def currentDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+    "${major}-${release}.${currentDate}.${seqNum}"
+}
+
+pipeline {
+    agent { 
+        node {
+            label "${env.DOCKER_NODE_LABEL}"
+        }
+    }
+    options {
+        timestamps()
+    }
+    stages {
+        stage('Checkout configurations') {
+            steps {
+                dir("configurations") {
+                    git branch: 'develop', credentialsId: "${env.GITHUB_CREDENTIALS_ID}", url: 'git@github.com:trilogy-group/ignite-firstrain-configurations.git'
+                }
+            }   
+        }
+        stage('Set version') {
+            steps {
+                dir("api/parent_api") {
+					script {
+                        if (params.SET_VERSION == true && params.BUILD_VERSION != '' && params.DEPENDENCY_VERSION != '') {
+                            sh("./updateVersion.sh ${env.BUILD_VERSION} ${params.DEPENDENCY_VERSION}")
+                        } else {
+                            env.BUILD_VERSION = generateVersion(params.RELEASE_VERSION, params.RELEASE_TYPE, params.BUILD_SEQ_NUM);
+                            if (params.RELEASE_TYPE == "GA") {
+                                sh("./updateVersion.sh ${env.BUILD_VERSION} \"[${env.RELEASE_VERSION}-GA.0.0,)\"")
+                            } else {
+                            	//For daily builds we have the same version of this repo and depenencies
+                                sh("./updateVersion.sh ${env.BUILD_VERSION} ${env.BUILD_VERSION}")
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                retry(3) {
+                    dir("api/parent_api") {
+                        devfactory (
+                            portfolio: 'Ignite',
+                            product: 'Firstrain',
+                            productVersion: "${env.ALINE_PRODUCT_VERSION}",
+                            types: 'Java',
+                            scmRelativeDir: '../',
+                            processTests: false,
+                        ) {
+                        sh "mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean install verify -U ${env.MAVEN_ARGS} -DskipTests=${env.SKIP_UTs} -DskipITs=${env.SKIP_ITs}"
+                        }
+                    }
+                    dir("api") {
+                        script {
+                            def files = findFiles(glob: '**/target/**/TEST-*.xml')
+                            if (files) {
+                                junit '**/target/**/TEST-*.xml'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage("Jacoco Publish")
+        {
+            when { expression { return params.CHECK_COVERAGE }}   
+            steps {
+                script {
+                    files = findFiles(glob: "**/jacoco.exec")
+                    if (files) {
+                        jacoco (
+                            exclusionPattern: '**/*Test*.class',
+                            buildOverBuild: true,
+                            deltaClassCoverage: "${env.DELTA_CLASS_COVERAGE}",
+                            deltaLineCoverage: "${env.DELTA_LINE_COVERAGE}",
+                            deltaMethodCoverage: "${env.DELTA_METHOD_COVERAGE}",
+                            deltaInstructionCoverage: "${env.DELTA_INSTRUCTION_COVERAGE}",
+                            deltaBranchCoverage: "${env.DELTA_BRANCH_COVERAGE}",
+                            deltaComplexityCoverage: "${env.DELTA_COMPLEXITY_COVERAGE}"
+                        )
+                    }
+                }
+            }   
+        }   
+        stage('Deploy') {
+            steps {
+                dir("api/parent_api") {
+                    echo "Deploying release version"
+                    sh("mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn deploy ${env.MAVEN_ARGS} -Dmaven.test.skip=true")
+
+                    echo "Deploying SNAPSHOT version"
+                    sh "mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn versions:set -DnewVersion=${env.RELEASE_VERSION}-SNAPSHOT"
+                    sh("mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn deploy ${env.MAVEN_ARGS} -Dmaven.test.skip=true")
+                }
+            }
+        }
+        stage ("Docker-EF") {
+            when {expression { return params.BUILD_DOCKER }}
+            parallel {
+                stage('API-RC') {
+                    steps {
+                        build job: "FirstRain Projects/Thin Builds/Docker Builds/Docker Trigger",
+                                        parameters: [
+                                            [$class: 'StringParameterValue', name: 'MODULE_NAME', value: "API-RC"],
+                                            [$class: 'StringParameterValue', name: 'PROJECT_VERSION', value: "${env.BUILD_VERSION}"],
+                                            [$class: 'StringParameterValue', name: 'BUILD_CONFIG', value: "RELEASE"]
+                                        ],
+                                        wait: false
+                    }
+                }
+            }
+        }
+    }
+    post {
+        success {
+            dir ("api") {
+                script {
+                    def githubReleaseTag = new com.aurea.pushGitTag()
+                    githubReleaseTag.pushGitTag("v${env.BUILD_VERSION}", "RC build: ${env.BUILD_VERSION}", "${env.GITHUB_CREDENTIALS_ID}")
+                }
+            }
+        }
+        failure {
+            // PCA API integration - FIRSTRAIN-42004
+            script {
+                def messagePayload = [
+                    project_key: "FIRSTRAIN",
+                    job_name: "API-RC build",
+                    job_url: "${env.BUILD_URL}",
+                    error: "The API-RC build has finished with errors. Please check the Build URL for details."
+                ]
+
+                def response = httpRequest url: "https://pca-auto-review.private.central-eks.aureacentral.com/pca-qe/api/create/cicd_failure",
+                    httpMode: "POST",
+                    contentType: "APPLICATION_JSON",
+                    requestBody: new JsonBuilder(messagePayload).toString()
+
+                println("[cicd_failure call] Status:  " + response.status)
+                println("[cicd_failure call] Content: " + response.content)
+            }
+        }
+        always {
+            dir ("api") {
+                // PUSH TO BUILD
+                // set gitHub commit status
+                script { echo "CURRENT BUILD RESULT: ${currentBuild.currentResult}"
+                    echo "CURRENT GITHUB URL: ${env.GIT_URL}"
+                    echo "CURRENT GITHUB COMMIT: ${env.GIT_COMMIT}"
+                    echo "CUSTOM GITHUB PROJECT URL: ${env.GITHUB_PROJECT_URL}"
+
+                    // it shoud gives us previous commit,
+                    // which will be used to set status on,
+                    // and not on virtual merge commit
+                    def previousCommit = sh (script: "git show HEAD | grep Merge |  tail -1 | awk '{print \$2}'", returnStdout: true).trim()
+                    sh("echo 'PREVIOUS GITHUB COMMIT: ${previousCommit}'")
+
+                    def commitToSetStatusOn = "${env.GIT_COMMIT}"
+
+                    // special case fo PR builds, we should set github status to previous commit
+                    if ("${env.GITHUB_CONTEXT}" == "jenkins-pr/build-result" ) {
+                        commitToSetStatusOn = previousCommit
+                    }
+
+                    // if this is not PR job
+                    if ("${env.GITHUB_CONTEXT}" != "jenkins-pr/build-result" ) {
+                        def githubCommit = new com.aurea.setGitHubCommitStatus()
+                        githubCommit.setGitHubCommitStatus("Build ${env.BUILD_VERSION}", "${currentBuild.currentResult}", "${env.GITHUB_PROJECT_URL}", "${commitToSetStatusOn}", "${env.GITHUB_CONTEXT}")
+                    }
+                   
+                }
+
+                script {                                       
+                    def comitterEmail = sh (
+                        script: "git rev-parse HEAD | git show --format='%ae' | grep -m1 ''",
+                        returnStdout: true
+                    ).trim()
+                    
+                    step([$class: 'Mailer',
+                        recipients: "${comitterEmail},${env.EMAIL_TO}",
+                        notifyEveryUnstableBuild: false
+                    ])
+                }   
+            }
+        }
+    }
+}

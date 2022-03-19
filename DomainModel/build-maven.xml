@@ -1,0 +1,113 @@
+<project name="DomainModel" default="build-deploy-maven" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	<property name="build-dependencies" value="${basedir}/../../MI4/build-dependencies" />
+	
+	<property name="lib" value="${basedir}/../../MI4/lib" />
+	<property name="maven.ant.tasks.url" value="http://central.maven.org/maven2/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar" />
+	<property name="maven.ant.tasks.jar" value="${lib}/mavenant/maven-ant-tasks-2.1.3.jar" />
+	<available property="maven.ant.tasks.jar.exists" file="${maven.ant.tasks.jar}" />
+
+	<target name="bootstrap.maven.tasks" unless="maven.ant.tasks.jar.exists">
+		<mkdir dir="${lib}/mavenant" />
+		<get src="${maven.ant.tasks.url}" dest="${maven.ant.tasks.jar}" />
+	</target>
+	<target name="init" depends="bootstrap.maven.tasks">
+		<!-- read properties from the build.properties, if any-->
+		<property name="build-propfile" value="${basedir}/../api-ant/build.properties" />
+		<property file="${build-propfile}" />
+		<tstamp />
+
+		<property name="name" value="DomainModel" />
+		<echo message="Branch = ${branch}" />
+		<echo message="Version= ${version}" />
+		<echo message="Build= ${build}" />
+		<echo message="Tag= ${tag}" />
+		<delete dir="${basedir}/target" />
+
+		<property name="title" value="FirstRain DomainModel Project" />
+		<property name="package" value="com.firstrain" />
+		<property name="build.dir" value="${basedir}/build" />
+		<property name="build.classes.dir" value="${build.dir}/classes" />
+		<property name="build.classes.conf.dir" value="${build.classes.dir}/conf" />
+		<property name="buildtime" value="${DSTAMP}-${TSTAMP}" />
+		<property name="src.java.dir" value="${basedir}/src/main/java" />
+		<property name="dist.dir" value="${basedir}/dist" />
+		<property name="module" value="DomainModel" />
+
+		<property name="javac.optimize" value="true" />
+		<property name="javac.debug" value="true" />
+		<property name="javac.deprecation" value="yes" />
+
+		<echo message="lib = ${lib}" />
+		<path id="maven-ant-tasks.classpath" path="${lib}/mavenant/maven-ant-tasks-2.1.3.jar" />
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="maven-ant-tasks.classpath" />
+
+		<!--load pom.xml for dependencies -->
+		<artifact:pom id="pomfile" file="pom.xml" inheritAllProperties="true" />
+		<artifact:dependencies filesetId="mvn-dependencies" pomRefId="pomfile" cacheDependencyRefs="true" useScope="compile" />
+		<!-- now combine the classpaths -->
+		<path id="classpath">
+			<fileset refid="mvn-dependencies" />
+		</path>
+		<property name="classpath" refid="classpath" />
+
+	</target>
+	<!-- ######################################################### -->
+	<target name="clean" depends="init" description="Removes generated files">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<!-- ######################################################### -->
+	<target name="compile" depends="clean" description="compiles source files">
+		<mkdir dir="${build.classes.dir}" />
+		<echo message="classpath= ${classpath}" />
+		<javac destdir="${build.classes.dir}" srcdir="${src.java.dir}" classpath="${classpath}" debug="${javac.debug}" deprecation="${javac.deprecation}" optimize="${javac.optimize}" encoding="UTF-8"/>
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.java.dir}">
+				<not>
+					<filename name="**/*.java" />
+				</not>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build-jar" depends="compile">
+
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/WEB-INF/lib" />
+
+		<jar jarfile="${dist.dir}/${name}.jar">
+			<fileset dir="${build.classes.dir}" />
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Package" value="${package}" />
+				<attribute name="Extension-Name" value="${name}" />
+				<attribute name="Specification-Title" value="${title}" />
+				<attribute name="Implementation-Vendor" value="firstRain" />
+				<attribute name="Implementation-Branch" value="${branch}" />
+				<attribute name="Implementation-Version" value="${version}" />
+				<attribute name="Implementation-Build" value="${build}" />
+				<attribute name="Implementation-Tag" value="${tag}" />
+				<attribute name="Implementation-BuildTime" value="${buildtime}" />
+			</manifest>
+		</jar>
+		<copy todir="${dist.dir}/WEB-INF/lib" flatten="true">
+			<fileset refid="mvn-dependencies">
+			</fileset>
+		</copy>
+		<artifact:install file="${dist.dir}/${name}.jar">
+		<pom refid="pomfile"/>
+		</artifact:install>
+	</target>
+	<!-- ================================= 
+	      Project Name :- DomainModel
+	     ================================= -->
+	<target name="DomainModel" depends="build-jar">
+		<property name="DomainModel.dist" value="${dist.dir}/DomainModel" />
+		<echo>dist dir DomainModel ${dist.dir}</echo>
+		<copy todir="${dist.dir}/DomainModel/WEB-INF/lib" flatten="true">
+			<fileset refid="mvn-dependencies" />
+		</copy>
+	</target>
+	<target name="build-deploy-maven" depends="build-jar" description="build and deoploy to specific location" />
+</project>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.firstrain</groupId>
+		<artifactId>mi4-parent-api</artifactId>
+		<version>201901.0.0</version>
+		<relativePath>../parent_api/pom.xml</relativePath>
+	</parent>
+	<name>Static</name>
+	<artifactId>Static</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<!--Test Frameworks-->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>thirdparty.junithour</groupId>
+			<artifactId>junithour</artifactId>
+			<version>${junithour.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aurea</groupId>
+			<artifactId>tests-commons</artifactId>
+			<version>${tests.commons.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.openpojo</groupId>
+			<artifactId>openpojo</artifactId>
+			<version>${openpojo.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!--END Test Frameworks-->
+		<dependency>
+			<groupId>com.firstrain</groupId>
+			<artifactId>ServiceAPI-api</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>poi</artifactId>
+					<groupId>poi</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>poi-ooxml</artifactId>
+					<groupId>poi</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springframework.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-solrj</artifactId>
+			<version>${solr-solrj.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-io</artifactId>
+					<groupId>commons-io</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-codec</artifactId>
+					<groupId>commons-codec</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-fileupload</artifactId>
+					<groupId>commons-fileupload</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-httpclient</artifactId>
+					<groupId>commons-httpclient</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version2}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version2}</version>
+		</dependency>
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi-ooxml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers</artifactId>
+			<version>${lucene-analyzers.version2}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-memory</artifactId>
+			<version>${lucene-memory.version2}</version>
+		</dependency>
+		<dependency>
+			<groupId>thirdparty.oscache</groupId>
+			<artifactId>oscache</artifactId>
+			<version>${oscache.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>${xmlbeans.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi-ooxml-schemas.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>${standard.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons-httpclient.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/main/test</testSourceDirectory>
+	</build>
+	<profiles>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging.type>jar</packaging.type>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>${maven-resources-plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<id>copy-static-css</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${user.dir}/dist/Static/api/css/standard/static</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/main/webapp/css</directory>
+											<excludes>
+												<exclude>**/fr.css</exclude>
+												<exclude>dnbi-fr.css</exclude>
+											</excludes>
+										</resource>
+										<resource>
+											<directory>${basedir}/src/main/webapp/css/staticdata</directory>
+											<includes>
+												<include>fr.css</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<phase>package</phase>
+								<id>copy-static-css2</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${user.dir}/dist/Static/api/css/standard/v1</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/main/webapp/css</directory>
+											<excludes>
+												<exclude>**/fr.css</exclude>
+											</excludes>
+										</resource>
+										<resource>
+											<directory>${basedir}/src/main/webapp/css</directory>
+											<includes>
+												<include>fr.css</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<phase>package</phase>
+								<id>copy-static-images</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${user.dir}/dist/Static/api/images</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/main/webapp/images</directory>
+											<includes>
+												<include>**</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<phase>package</phase>
+								<id>copy-static-js</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${user.dir}/dist/Static/api/js/standard/static</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/main/webapp/js/static</directory>
+											<excludes>
+												<exclude>**/visual-init.js</exclude>
+											</excludes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<phase>package</phase>
+								<id>copy-static-js2</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${user.dir}/dist/Static/api/js/standard/v1</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/main/webapp/js</directory>
+											<includes>
+												<include>common-utils.js</include>
+												<include>custom.js</include>
+												<include>custom-ly.js</include>
+												<include>excanvas.js</include>
+												<include>fr-ly-include-jquery.js</include>
+												<include>graph.js</include>
+												<include>include-jquery.js</include>
+												<include>jquery-migrate-1.1.1.js</include>
+												<include>rgraph.js</include>
+												<include>visualization.js</include>
+												<include>vscroll.js</include>
+												<include>webvolume.js</include>
+												<include>static/**</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${maven-antrun-plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<apply executable="java" force="true" parallel="false">
+											<filelist dir="${basedir}/src/main/webapp/css" files="mcustomscroll.css,fr.css, dnbi-fr.css, fr-layout.css, visualization.css"/>
+											<arg line="-jar"/>
+											<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar"/>
+											<arg value="--charset"/>
+											<arg value="UTF-8"/>
+											<srcfile/>
+											<arg line="-o"/>
+											<mapper from="*.css" to="${output-dir}/api/css/standard/v1/*.min.css" type="glob"/>
+											<targetfile/>
+										</apply>
+										<apply executable="java" force="true" parallel="false">
+											<!--fileset dir="${basedir}/src/main/webapp/js" includes="mtchart-init.js" /-->
+											<filelist dir="${basedir}/src/main/webapp/js/" files="graph.js,common-utils.js,custom.js,custom-ly.js,excanvas.js,fr-ly-include-jquery.js,include-jquery.js,jquery-migrate-1.1.1.js,rgraph.js,visualization.js,vscroll.js,webvolume.js"/>
+											<arg line="-jar"/>
+											<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar"/>
+											<arg value="--charset"/>
+											<arg value="UTF-8"/>
+											<srcfile/>
+											<arg line="-o"/>
+											<mapper from="*.js" to="${output-dir}/api/js/standard/v1/*.min.js" type="glob"/>
+											<targetfile/>
+										</apply>
+										<!-- generate graph.js file -->
+										<mkdir dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										<apply executable="java" force="true" parallel="false">
+											<filelist dir="${basedir}/src/main/webapp/js/RGraph" files="RGraph.common.core.js,RGraph.common.dynamic.js,RGraph.common.tooltips.js,RGraph.line.js,RGraph.drawing.image.js,RGraph.bar.js"/>
+											<arg line="-jar"/>
+											<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar"/>
+											<arg value="--charset"/>
+											<arg value="UTF-8"/>
+											<srcfile/>
+											<arg line="-o"/>
+											<mapper from="*.js" to="${output-dir}/api/js/standard/v1/compressjs/*.min.js" type="glob"/>
+											<targetfile/>
+										</apply>
+										<concat destfile="${output-dir}/api/js/standard/v1/rgraph.min.js">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs" includes="*"/>
+										</concat>
+										<concat destfile="${output-dir}/api/js/standard/v1/rgraph.js">
+											<fileset dir="${basedir}/src/main/webapp/js/RGraph" includes="RGraph.common.core.js,RGraph.common.dynamic.js,RGraph.common.tooltips.js,RGraph.line.js,RGraph.drawing.image.js,RGraph.bar.js"/>
+										</concat>
+										<delete includeemptydirs="true">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										</delete>
+										<!-- generate vscroll.js file -->
+										<mkdir dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										<apply executable="java" force="true" parallel="false">
+											<filelist dir="${basedir}/src/main/webapp/js" files="fr.vscroll.js,jquery-ui-1.10.2.custom.js,iscroll.js,jquery.mCustomScrollbar.js,jquery.mousewheel.min.js"/>
+											<arg line="-jar"/>
+											<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar"/>
+											<arg value="--charset"/>
+											<arg value="UTF-8"/>
+											<srcfile/>
+											<arg line="-o"/>
+											<mapper from="*.js" to="${output-dir}/api/js/standard/v1/compressjs/*.min.js" type="glob"/>
+											<targetfile/>
+										</apply>
+										<concat destfile="${output-dir}/api/js/standard/v1/vscroll.min.js">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs" includes="*"/>
+										</concat>
+										<concat destfile="${output-dir}/api/js/standard/v1/vscroll.js">
+											<fileset dir="${basedir}/src/main/webapp/js" includes="fr.vscroll.js,jquery-ui-1.10.2.custom.js,iscroll.js,jquery.mCustomScrollbar.js,jquery.mousewheel.min.js"/>
+										</concat>
+										<delete includeemptydirs="true">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										</delete>
+										<!-- generate the first webvolume.js file -->
+										<mkdir dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										<apply executable="java" force="true" parallel="false">
+											<filelist dir="${basedir}/src/main/webapp/js" files="jquery.flot.js,jquery.flot.symbol.js,jquery.frchart.js"/>
+											<arg line="-jar"/>
+											<arg path="${basedir}/../../configurations/Configurations/frqa/yuicompressor-2.4.2.jar"/>
+											<arg value="--charset"/>
+											<arg value="UTF-8"/>
+											<srcfile/>
+											<arg line="-o"/>
+											<mapper from="*.js" to="${output-dir}/api/js/standard/v1/compressjs/*.min.js" type="glob"/>
+											<targetfile/>
+										</apply>
+										<concat destfile="${output-dir}/api/js/standard/v1/webvolume.min.js">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs" includes="*"/>
+										</concat>
+										<concat destfile="${output-dir}/api/js/standard/v1/webvolume.js">
+											<fileset dir="${basedir}/src/main/webapp/js" includes="jquery.flot.js,jquery.flot.symbol.js,jquery.frchart.js"/>
+										</concat>
+										<delete includeemptydirs="true">
+											<fileset dir="${output-dir}/api/js/standard/v1/compressjs"/>
+										</delete>
+										<concat destfile="${output-dir}/api/js/standard/static/webvolume.js">
+											<fileset dir="${basedir}/src/main/webapp/js/static" includes="jquery-migrate-1.1.1.js,jquery.flot.js,jquery.flot.symbol.js,jquery.frchart.js"/>
+										</concat>
+									</target>
+								</configuration>
+							</execution>
+							<execution>
+								<id>attach-artifact</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<zip destfile="${output-dir}/../${project.name}.war" basedir="${output-dir}" includes="**" />
+										<zip destfile="${output-dir}/../${project.name}.zip" basedir="${output-dir}/.." includes="${project.name}.war" />
+										<attachartifact file="${output-dir}/../${project.name}.zip" classifier="deploy" type="zip"/>
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		<h3> Test First Widget </h3>
+	
+		<script>
+			window.callback1 = function(event, obj) {
+				//console.log(this);
+				console.log(event.type);
+				//console.log(obj);
+			}
+			
+			window.callback2 = function(event, obj) {
+				//console.log(this);
+				console.log(event.type);
+				//console.log(obj);
+			}
+		
+		</script>
+	
+		<h2>First Graph</h2>
+		<br />
+		<script class="jq-fr-visualization"  src="../js/visual-init.js#authKey=Smi8E2GgBS16cl9w2q4aEIu0&frUserId=123&id=M:72239&events=click:callback1,mouseenter:callback1,mouseleave:callback2&dim=600x150&chDim=200x150&chTypes=mat,bi,md,tw,rg,rus&styleURL=//img.frstatic.com/spa/ec1/14800/css/sfdc/fr.min.css" type="text/javascript"></script>
+		
+		<div style="clear: both;"></div>
+		
+		<br />
+		<h2>Second Graph</h2>
+		<br />
+		
+		<script class="jq-fr-visualization"  src="../js/visual-init.js#authKey=Smi8E2GgBS16cl9w2q4aEIu0&frUserId=123&id=C:AppleInc&events=click:callback1,mouseenter:callback1,mouseleave:callback2&dim=600x150&chDim=200x150&chTypes=mat,bi,md,tw,rg,rus&styleURL=//img.frstatic.com/spa/ec1/14800/css/sfdc/fr.min.css" type="text/javascript"></script>
+		
+	</body>
+	
+	
+	<script>
+		$(function() {
+		
+			//setTimeout( function() {console.log("main-" + $().treemap);}, 2000);
+		});
+	</script>	
+	
+</html>

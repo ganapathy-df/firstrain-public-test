@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceConfig>
+    <DataSources>
+        <MI32>frDB</MI32>
+    </DataSources>
+    <GroovyUrl>http://localhost:60255/froovyservice/runGroovy.jsp</GroovyUrl>
+    <Solr>
+        <EntityServerURL pingQ="attrCompanyId:3864">http://localhost:61205/solr/entity</EntityServerURL>
+        <PeopleServerURL pingQ="newCompanyId:464">http://localhost:61208/solr/people</PeopleServerURL>
+        <EventServerURL pingQ="companyId:4646">http://localhost:61208/solr/event</EventServerURL>
+        <DocImageServerURL pingQ="insertTime:[NOW/DAY-1DAYS TO *]">http://localhost:61208/solr/docimage</DocImageServerURL>
+        <TwitterServerURL pingQ="companyId:4646">http://localhost:61208/solr/twitter</TwitterServerURL>
+        <TweetGroupServerURL pingQ="catId:289290">http://localhost:61208/solr/twittergroup</TweetGroupServerURL>
+        <QuoteServerURL pingQ="*:*">http://localhost:61208/solr/quote</QuoteServerURL>
+        <DistributedDocServer pingQ="headline: microsoft" file="DistributedDocServer.xml"/>
+        <retryDelaySeconds>1</retryDelaySeconds>
+    </Solr>
+    <DocSimilarity>
+        <pathStopList>src/test/resources/FinalStopList.txt</pathStopList>
+        <pathDict>src/test/resources/dict</pathDict>
+        <threshhold>50</threshhold>
+    </DocSimilarity>
+</ServiceConfig>

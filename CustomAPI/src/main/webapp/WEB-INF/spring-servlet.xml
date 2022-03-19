@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:task="http://www.springframework.org/schema/task"	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-1.5.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<mvc:annotation-driven />
+	<!-- scan common services -->
+	<context:component-scan base-package="com.firstrain.web.service.core,com.firstrain.frapi.customapiservice,com.firstrain.frapi.customapiservice.impl,com.firstrain.frapi.customapirepository,com.firstrain.frapi.customapirepository.impl" />
+	
+	<!-- scan common controllers -->
+	<context:component-scan base-package="com.firstrain.web.controller.core" />
+	
+	<task:annotation-driven executor="taskExecutor" />
+	<task:executor id="taskExecutor" pool-size="${executor.pool.size}" queue-capacity="${executor.processing.queue.max.size}"  rejection-policy="CALLER_RUNS"/>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:resource/spring_config.properties" />
+	</bean>
+	
+	<bean id="serviceConfig" class="com.firstrain.frapi.config.ServiceConfig" factory-method="getInstance" />
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="resource/message" />
+	</bean>
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="8388608"/> <!-- size in bytes [1 MB] -->
+	</bean>
+	
+	 <bean class="com.firstrain.web.view.ExceptionViewResolver">
+		<property name="exceptionMappings">
+			<map>
+				<entry key="Exception" value="errorMessage" />
+			</map>
+		</property>
+		<property name="defaultErrorView" value="errorMessage" />
+	</bean>
+	
+	<bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
+	<bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig"
+		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" />
+
+	<bean id="jsonNullAdaptor"	class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="jacksonSerializationConfig" />
+		<property name="targetMethod" value="setSerializationInclusion" />
+		<property name="arguments">
+			<list>
+				<value type="org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion">NON_NULL</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="loadConfigurationService" class="com.firstrain.web.service.core.LoadConfigurationComponent" />
+	<bean id="loadConfigurationComponentByExternalUrl" class="com.firstrain.web.service.core.LoadConfigurationComponentByExternalUrl"></bean>
+	
+	<bean id="schedulerTask" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+		<property name="targetObject" ref="loadConfigurationService" />
+		<property name="targetMethod" value="init" />
+	</bean>
+	
+	<bean id="timerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="timerTask" ref="schedulerTask" />
+		<property name="period" value="60000" />
+	</bean>
+	
+	<bean id="schedulerTask1" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+		<property name="targetObject" ref="loadConfigurationComponentByExternalUrl" />
+		<property name="targetMethod" value="init" />
+	</bean>
+	
+	<bean id="timerTask1" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="timerTask" ref="schedulerTask1" />
+		<property name="period" value="60000" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref local="timerTask" />
+				<ref local="timerTask1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="httpConnectionManagerParams" class="org.apache.commons.httpclient.params.HttpConnectionManagerParams">
+		<property name="maxTotalConnections" value="${http.client.max.connection}" />
+		<property name="defaultMaxConnectionsPerHost" value="${http.client.max.connection}" />
+		<property name="connectionTimeout" value="${http.client.read.timeout.ms}" />
+		<property name="soTimeout" value="${http.client.read.timeout.ms}" />
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	    <property name="targetObject" ref="httpConnectionManagerParams" />
+		<property name="targetMethod" value="setMaxConnectionsPerHost" />
+		<property name="arguments">
+			<list>
+				<value type="org.apache.commons.httpclient.HostConfiguration">ANY_HOST_CONFIGURATION</value>
+				<value>20</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="multiThreadedHttpConnectionManager" class="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager">
+		<property name="params" ref="httpConnectionManagerParams" />
+	</bean>
+	
+	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">
+		<constructor-arg ref="multiThreadedHttpConnectionManager" /> 
+	</bean>
+	
+	<bean id="commonsClientHttpRequestFactory" class="org.springframework.http.client.CommonsClientHttpRequestFactory">
+		<constructor-arg ref="httpClient" />
+	</bean>
+	
+	 <bean id="enterpriseConfigLoader" class="com.firstrain.web.service.core.EnterpriseConfigLoader">
+        <property name="marshaller" ref="jaxbmarshaller" />
+        <property name="unmarshaller" ref="jaxbmarshaller" />
+    </bean>
+    
+   <bean id="jaxbmarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+	   <property name="classesToBeBound">
+		<list>
+		   <value>com.firstrain.web.util.ProjectConfig</value>
+		</list>
+	   </property>
+	    <property name="schema" value="classpath:projectconfig.xsd"/>
+	</bean>
+	
+	<bean id="negotiateViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="com.firstrain.web.view.JsonView">
+					<property name="objectMapper" ref="jacksonObjectMapper" />
+				</bean>
+			</list>
+		</property>
+	</bean>	
+	
+	<mvc:interceptors>
+		<bean class="com.firstrain.web.interceptor.PerfLoggingInterceptor" />
+		<bean class="com.firstrain.web.interceptor.AuthInterceptor" />
+		<bean class="com.firstrain.web.interceptor.UserActivityTrackingInterceptor" />
+	</mvc:interceptors>
+	
+	<mvc:view-controller path="errorMessage.do" view-name="errorMessage" />
+</beans>

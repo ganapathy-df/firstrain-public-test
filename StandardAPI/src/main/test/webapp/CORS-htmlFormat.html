@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--[if IE 9]>
+  <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js" slave="http://10.32.2.94:9080/standard/v1/proxy.html"></script>
+<![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="test"></div>
+<script>
+var url = "http://10.32.2.94:9080/standard/v1/entity/081466849/brief?sections={fr}&frUserId=U:1907&authKey=651975e96bc0ffb9ea035e077e7d9ac006a30762c12ca23dead371c92f8540d9";
+
+jQuery.support.cors = true;
+$.get(url).done(function(data) {
+  $("#test").html(data);
+});
+
+</script>
+</body>
+</html>

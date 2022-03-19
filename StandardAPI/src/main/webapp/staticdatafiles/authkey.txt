@@ -1,0 +1,9 @@
+{
+    "message": "Authentication key populated successfully.",
+    "status": "SUCCESS",
+    "version": "v1",
+    "result": {
+        "authKey": "Smi8E2GgBS16cl9w2q4aEIu0",
+        "validTill": "18 Sep 2014 07:16:43 UTC"
+    }
+}

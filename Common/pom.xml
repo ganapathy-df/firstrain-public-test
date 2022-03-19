@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- need to be build by junkins (CI/PR) -->
+	<parent>
+		<groupId>com.firstrain</groupId>
+		<artifactId>mi4-parent-api</artifactId>
+		<version>201901.0.0</version>
+		<relativePath>../parent_api/pom.xml</relativePath>
+	</parent>
+	<name>Common</name>
+	<artifactId>Common</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>${packaging.type}</packaging>
+	<properties>
+		<packaging.type>jar</packaging.type>
+		<skipTests>false</skipTests>
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+	</build>
+</project>

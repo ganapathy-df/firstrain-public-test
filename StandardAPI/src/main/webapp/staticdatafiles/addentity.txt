@@ -1,0 +1,8 @@
+{
+    "message": "Entity added successfully.",
+    "status": "SUCCESS",
+    "result": {
+    	"monitorId": "M:399",
+	    "monitorName": "C:NYSEEuronextInc"
+    }
+}

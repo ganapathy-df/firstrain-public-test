@@ -1,0 +1,25 @@
+{
+    "message": "Tagged data populated successfully.",
+    "result": {
+        "entity": [
+            {
+                "name": "Microsoft Corporation",
+                "searchToken": "C:MicrosoftCorporation",
+                "relevanceBand": "High",
+                "relevanceScore": 90
+            },
+            {
+                "name": "Apple Inc",
+                "searchToken": "C:AppleInc",
+                "relevanceBand": "High",
+                "relevanceScore": 500
+            },
+            {
+                "name": "Technology",
+                "searchToken": "I:TechnologySector",
+                "relevanceBand": "High"
+            }
+        ]
+    },
+    "status": "SUCCESS"
+}

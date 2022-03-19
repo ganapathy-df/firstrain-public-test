@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.firstrain</groupId>
+		<artifactId>mi4-parent-api</artifactId>
+		<version>201901.0.0</version>
+		<relativePath>../parent_api/pom.xml</relativePath>
+	</parent>
+	<name>DomainModel</name>
+	<artifactId>DomainModel-api</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-lgpl</artifactId>
+			<version>${jackson-codehaus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.firstrain</groupId>
+			<artifactId>Common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang.version2}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.firstrain</groupId>
+			<artifactId>fr-common-utils</artifactId>
+			<version>${fr-common-utils.version}</version>
+			<classifier>jdk6</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.firstrain</groupId>
+			<artifactId>fr-common-db</artifactId>
+			<version>${fr-common-db.version}</version>
+			<classifier>jdk6</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.firstrain</groupId>
+			<artifactId>FRSearchDB</artifactId>
+			<version>${frsearchdb.version}</version>
+			<classifier>jdk6</classifier>
+		</dependency>
+
+		<!-- TEST DEPENDENCIES -->
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-reflect</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+	</build>
+</project>

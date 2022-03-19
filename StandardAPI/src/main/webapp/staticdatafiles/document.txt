@@ -1,0 +1,33 @@
+{
+   "message":"Data populated successfully.",
+   "result":{
+      "metaData":{
+         "document":"Duke Energy Corporation"
+      },
+      "data":{
+         "document":{
+            "id":"D:690733102",
+            "timeStamp":"18 Oct 2014 07:16:43 UTC",
+            "contentType":"PRESS RELEASES",
+            "source":{
+               "name":"COAL MINING AND GEOLOGY",
+               "searchToken":"S:COALMININGANDGEOLOGY"
+            },
+            "entity":[
+               {
+                  "name":"Duke Energy Corporation",
+                  "searchToken":"C:DukeEnergyCorporation",
+                  "band": "High",
+                  "score":94
+               }
+            ],
+            "title":"Coal Plant To End All Coal Plants",
+            "snippet":"COMPANY TO HAVE 1,000 MW OF RENEWABLES DTE is on track to have almost 1,000 MW of Duke Energyís investment in five new combined-cycle and clean coal plants, including the one in Goldsboro Duke Energyís district manager.It marks the end of a plant that has reliably served the region for more than 60 years, while also symbolizing",
+            "link":"http://coalminingandgeology.com/mining/coal-plant-to-end-all-coal-plants/",
+            "quotes":"It marks the end of a plant that has reliably served the region for more than 60 years, while also symbolizing -- sourcing support model - Goldsboro",
+            "image":"https://frimages.firstrain.com/imagerepository/1/1354/0b/a5/0ba52b10-3ea4-11e4-a308-0019b9cc211b.jpg"
+         }
+      }
+   },
+   "status":"SUCCESS"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceConfig>
+	<Solr>
+		<EntityServerURL pingQ="attrCompanyId:3864">http://10.32.1.55:8080/solr/entity</EntityServerURL>
+		<DocImageServerURL pingQ="insertTime:[NOW/DAY-1DAYS TO *]">http://solr.froovy.firstrain.com/solr/docimage</DocImageServerURL>
+		<TwitterServerURL pingQ="companyId:4646">http://solr.froovy.firstrain.com/solr/twitter</TwitterServerURL>
+		<PeopleServerURL pingQ="newCompanyId:4646">http://solr.froovy.firstrain.com/solr/people</PeopleServerURL>
+		<EventServerURL pingQ="companyId:4646">http://solr.froovy.firstrain.com/solr/event</EventServerURL>
+		<TweetGroupServerURL pingQ="catId:289290">http://solr.froovy.firstrain.com/solr/twittergroup</TweetGroupServerURL>
+		<QuoteServerURL pingQ="*:*">http://solr.froovy.firstrain.com/solr/quote</QuoteServerURL>
+		<DistributedDocServer pingQ="headline: microsoft" file="DistributedDocServer.xml"/>
+	</Solr>
+	<DocSimilarity>
+		<pathStopList>E:\firstRain\Tomcat6\webapps\FRSolrExtension\config\FinalStopList.txt</pathStopList>
+		<pathDict>E:\firstRain\Tomcat6\webapps\FRSolrExtension\config\dict</pathDict>
+		<threshhold>50</threshhold>
+	</DocSimilarity>
+</ServiceConfig>

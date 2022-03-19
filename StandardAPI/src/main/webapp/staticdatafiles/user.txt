@@ -1,0 +1,15 @@
+{
+    "message": "user created successfully.",
+    "status": "SUCCESS",
+    "result": {
+        "user": {
+              "userId": "U:123",
+		      "uStatus": "ACTIVE",
+		      "uEmail": "xxxxx@firstrain.com",
+		      "uFirstName": "xxxx",
+		      "uLastName": "yyyyy",
+		      "uTimezone": "PST",
+		      "uCompany": "FirstRain"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "message": "Action performed successfully, this will get reflected in system in next 1 hr.",
+    "status": "SUCCESS"
+}

@@ -1,0 +1,5 @@
+summaryThreshold=0.15
+titleThreshold=0.7
+topicIntersection=0.20
+nGramSize=7
+similarityInfoDataSource=n

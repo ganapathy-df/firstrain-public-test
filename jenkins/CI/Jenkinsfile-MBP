@@ -1,0 +1,112 @@
+#!/usr/bin/env groovy
+@Library(['eng-build-utils']) _
+
+pipeline {
+    parameters{
+        string(defaultValue: '-P war', description: '', name: 'MAVEN_ARGS')
+        credentials(defaultValue: 'github-access', description: '', name: 'GITHUB_CREDENTIALS_ID')
+        string(defaultValue: 'FR-Api-Dev', description: '', name: 'ALINE_PRODUCT_VERSION')
+        booleanParam(defaultValue: false, description: '', name: 'SKIP_UTs')
+        string(defaultValue: '20', description: '', name: 'DELTA_COVERAGE')
+        string(defaultValue: '', description: '', name: 'EMAIL_TO')
+        booleanParam(defaultValue: true, description: '', name: 'CHECK_COVERAGE')
+    }
+    agent {
+        node {
+            label "firstrain"
+        }
+    } 
+    options {
+        timestamps()
+    }
+    stages {
+        stage('Checkout configurations') {
+            steps {
+                script {
+                    if (env.BUILD_NUMBER == "1" || env.GITHUB_CREDENTIALS_ID == null) {
+                        println "WARNING: Pipeline parameters are not defined. Overriding parameters to their default value"
+                        MAVEN_ARGS = '-P war'
+                        GITHUB_CREDENTIALS_ID = 'github-access'
+                        ALINE_PRODUCT_VERSION = 'FR-Api-Dev'
+                        SKIP_UTs = false
+                        DELTA_COVERAGE = 20
+                        EMAIL_TO = ''
+                        CHECK_COVERAGE = true
+                    }
+                }
+                sh "printenv"
+                dir("api") {
+                    checkout ( [$class: 'GitSCM',
+                    branches: [[name: "${GIT_COMMIT}" ]],
+                    userRemoteConfigs: [[
+                        credentialsId: "${GITHUB_CREDENTIALS_ID}", 
+                        url: 'git@github.com:trilogy-group/ignite-firstrain-api.git']]])
+                    
+                }   
+                dir("configurations") {
+                    checkout ( [$class: 'GitSCM',
+                    branches: [[name: 'develop' ]],
+                    userRemoteConfigs: [[
+                        credentialsId: "${GITHUB_CREDENTIALS_ID}", 
+                        url: 'git@github.com:trilogy-group/ignite-firstrain-configurations.git']]])
+                }   
+            }   
+        }
+        stage('Build') {
+            steps {
+                retry(3) {
+                    dir("api/parent_api") {
+                        sh "mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean test -U ${MAVEN_ARGS} -DskipTests=${SKIP_UTs} -DskipITs=true -P autout-tests"
+                    }
+                    dir("api") {
+                        script {
+                            def files = findFiles(glob: '**/target/**/TEST-*.xml')
+                            if (files) {
+                                junit '**/target/**/TEST-*.xml'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage("Jacoco Publish")
+        {   
+            when { expression { return CHECK_COVERAGE } }
+            steps {
+                script {
+                    files = findFiles(glob: "**/jacoco.exec")
+                    if (files) {
+                        jacoco (
+                            exclusionPattern: '**/*Test*.class',
+                            buildOverBuild: true,
+                            deltaClassCoverage: "${DELTA_COVERAGE}",
+                            deltaLineCoverage: "${DELTA_COVERAGE}",
+                            deltaMethodCoverage: "${DELTA_COVERAGE}",
+                            deltaInstructionCoverage: "${DELTA_COVERAGE}",
+                            deltaBranchCoverage: "${DELTA_COVERAGE}",
+                            deltaComplexityCoverage: "${DELTA_COVERAGE}"
+                        )
+                    }
+                }
+            } 
+        }  
+    }
+    post {
+        always {            
+            dir("api") {
+                // notify committer and custom reciepients
+                script {
+                    def comitterEmail = sh (
+                        script: "git rev-parse HEAD | git show --format='%ae' | grep -m1 ''",
+                        returnStdout: true
+                    ).trim()
+                    
+                    step([$class: 'Mailer',
+                        recipients: "${comitterEmail},${EMAIL_TO}",
+                        notifyEveryUnstableBuild: true
+                    ])
+                }     
+            }       
+        }
+    }
+}

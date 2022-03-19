@@ -1,0 +1,11 @@
+static.data.file.path = {STATIC_FILEs_DIR}
+categorization.service.url = {CATEGORIZATION_SERVICE_URL}
+api.version = v1
+app.name = {APP_NAME}
+http.client.read.timeout.ms = {HTTP_CLIENT_READ_TIME_OUT}
+http.client.max.connection = {HTTP_CLIENT_READ_TIME_OUT}
+user.activity.service.url = {USER_ACTIVITY_SERVICE_URL}
+executor.pool.size = {EXECUTOR_POOL_SIZE}
+executor.processing.queue.max.size = {EXECUTOR_PROCESSING_QUEUE_MAX_SIZE}
+executor.timeout = {EXECUTOR_TIMEOUT_INTERVAL_IN_MS}
+pw.brand.filepath = http://pftp3-w.ca.firstrain.net/filerepository/Staging_Config/PartnerAPI-PW-Brands/PW Brands-FR Topic mapping.xlsx

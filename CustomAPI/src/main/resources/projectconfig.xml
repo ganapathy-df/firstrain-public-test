@@ -1,0 +1,26 @@
+<project>
+	<enterprise id="1">
+		<appname>firstrain</appname>
+		<accesstoken>2D041C36F22B45672E4EDF1C976ABA4D49B482B3B3FEE4266C30A5D929CA3A2D</accesstoken>
+		<topicdimensions>1,2,3,14,18</topicdimensions>
+		<iprange>10.32.1.1-10.32.1.255,10.32.2.1-10.32.2.255</iprange>
+		<throttle>1000</throttle>
+		<indclassid>1</indclassid>
+	</enterprise>
+	<enterprise id="5828">
+		<appname>PW3</appname>
+		<accesstoken>97FBF83689BA96344A398356ADC1E09505AAA08CDE31C748</accesstoken>
+		<topicdimensions>1,2,3,14,18</topicdimensions>
+		<iprange>1.1.1.1-255.255.255.255</iprange>
+		<throttle>1000</throttle>
+		<indclassid>2</indclassid>
+	</enterprise>
+	<enterprise id="5828">
+		<appname>PW3</appname>
+		<accesstoken>97FBF83689BA96344A398356ADC1E09505AAA08CDE31C745</accesstoken>
+		<topicdimensions>1,2,3,14,15,18,19</topicdimensions>
+		<iprange>1.1.1.1-255.255.255.255</iprange>
+		<throttle>1000</throttle>
+		<indclassid>1</indclassid>
+	</enterprise>
+</project>

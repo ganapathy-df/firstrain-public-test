@@ -1,0 +1,29 @@
+{
+   "message":"Data populated successfully.",
+   "result":{
+      "metaData":{
+         "tweet":"Duke Energy Corporation"
+      },
+      "data":{
+         "tweet":{
+            "authorName":"Scotty J.",
+            "authorDescription":"Simply having a blast!",
+            "entity":{
+               "name":"Duke Energy Corporation",
+               "searchToken":"C:DukeEnergyCorporation"
+            },
+            "tweetHtml":"<span class='bold'>To their credit, the state's largest electricity providers, Duke Energy and its eastern offshoot Duke Energy</span> <span class='lightGrey'>http://t.co/h42rF1pMd2</span>",
+            "tweetId":"TW:523985289501753344",
+            "timeStamp":"18 Oct 2014 07:16:43 UTC",
+            "link":[
+               "http://www.starnewsonline.com/article/20141016/ARTICLES/141019779?Title=Editorial-Public-utilities-should-share-tax-cut-proceeds-with-customers/"
+            ],
+            "userName":"energy4u",
+            "title":"Editorial - Public utilities should share tax cut proceeds with customers",
+            "tweetText":"To their credit, the state's largest electricity providers, Duke Energy and its eastern offshoot Duke Energy http://t.co/h42rF1pMd2",
+            "authorAvatar":"https://pbs.twimg.com/profile_images/2328026161/skihi1crouiikkpwkzgq_normal.jpeg"
+         }
+      }
+   },
+   "status":"SUCCESS"
+}
